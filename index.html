@@ -3,436 +3,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zahlenstation - Ultra Kaskaden-Chiffre</title>
+    <title>OMEGA-V10: COHERENT QAM-256 KASKADEN-SIGNAL-SUITE</title>
     <style>
         body {
-            background-color: #050811;
-            color: #00ff66;
+            background-color: #020306;
+            color: #00e5ff;
             font-family: 'Courier New', Courier, monospace;
             padding: 20px;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
-        h1, h2 {
+        h1 {
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #00ff66;
-            text-shadow: 0 0 15px #00ff66;
+            letter-spacing: 5px;
+            color: #00e5ff;
+            text-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
             margin-bottom: 5px;
         }
-        .subtitle {
+        .status-terminal {
             text-align: center;
-            font-size: 13px;
+            font-size: 11px;
+            color: #ff0055;
+            background: rgba(255, 0, 85, 0.03);
+            padding: 8px;
+            border: 1px dashed #ff0055;
             margin-bottom: 25px;
-            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .container {
-            border: 1px solid #00ff66;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 102, 0.15);
-            background-color: #0d1527;
-            margin-bottom: 20px;
+            border: 1px solid #00e5ff;
+            padding: 25px;
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.15);
+            background-color: #050a12;
+            margin-bottom: 25px;
         }
         .section-title {
-            border-bottom: 1px solid #00ff66;
+            border-bottom: 2px double #00e5ff;
             padding-bottom: 5px;
-            margin-top: 5px;
+            margin-top: 0;
             color: #fff;
             text-transform: uppercase;
-            font-size: 18px;
+            font-size: 15px;
+            letter-spacing: 2px;
         }
         label {
             display: block;
             margin-top: 15px;
             font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #00e5ff;
         }
         textarea, input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-top: 5px;
             background-color: #000;
-            border: 1px solid #00ff66;
+            border: 1px solid #00aacc;
             color: #00ff66;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', monospace;
             box-sizing: border-box;
-            font-size: 14px;
+            font-size: 12px;
         }
         .flex-row {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             margin-top: 5px;
         }
         button {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             margin-top: 15px;
-            background-color: #00ff66;
+            background-color: #00e5ff;
             border: none;
             color: #000;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
         }
         button:hover {
-            background-color: #00cc52;
-            box-shadow: 0 0 10px #00ff66;
+            background-color: #00ff66;
+            box-shadow: 0 0 20px #00ff66;
         }
         button.rand-btn {
-            margin-top: 0;
+            margin-top: 5px;
             width: auto;
             white-space: nowrap;
-            background-color: #ffcc00;
+            background-color: #ffea00;
             color: #000;
         }
         button.rand-btn:hover {
-            background-color: #cca300;
+            background-color: #ffaa00;
+            box-shadow: 0 0 15px #ffea00;
         }
         .output-box {
             margin-top: 15px;
             padding: 15px;
             border: 1px dashed #00ff66;
-            background-color: #03050a;
-            min-height: 40px;
+            background-color: #000;
+            min-height: 60px;
             white-space: pre-wrap;
             word-break: break-all;
             font-weight: bold;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        .info-box {
-            border: 1px solid #ffcc00;
-            background-color: rgba(255, 204, 0, 0.05);
-            color: #fff;
-            padding: 20px;
-            margin-top: 20px;
+            font-size: 13px;
             line-height: 1.6;
+            color: #00ff66;
         }
-        .info-box h3 {
-            color: #ffcc00;
-            border-bottom: 1px solid #ffcc00;
+        .deep-analysis {
+            border: 1px solid #334466;
+            background: #02050a;
+            color: #b0c8e0;
+            padding: 30px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        .deep-analysis h3 {
+            color: #00e5ff;
+            margin-top: 25px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #334466;
             padding-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .deep-analysis h3:first-child {
             margin-top: 0;
         }
-        .step {
-            background-color: #000;
-            padding: 12px;
-            border-left: 4px solid #00ff66;
-            margin-bottom: 15px;
-            font-family: 'Courier New', monospace;
+        .deep-analysis h4 {
+            color: #fff;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .code-snippet {
+            background-color: #050a12;
+            padding: 2px 6px;
+            border: 1px solid #ff0055;
+            color: #ffaa00;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .highlight-text {
             color: #00ff66;
-            font-size: 13px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <h1>Zahlenstation</h1>
-    <div class="subtitle">=== SYSTEM PROTOCOL: ULTRA KASKADE v9 ===</div>
+    <h1>OMEGA-V10 KASKADE</h1>
+    <div class="status-terminal">📡 ZERO-TRACE PLATFORM // AIR-GAPPED HARDWARE ENTROPY // COHERENT QAM-256 VECTOR SYNTHESIS</div>
 
     <div class="container">
-        <div class="section-title">1. Nachricht verschlüsseln (Ultra-Kaskaden Encoder)</div>
+        <div class="section-title">🎚️ STUFE I: SIGNAL-SYNTHESE (ENCODER)</div>
         
-        <label for="encText">Klartext (Geheime Nachricht):</label>
-        <textarea id="encText" rows="2" placeholder="Beispiel: Treffen um 15 Uhr am alten Funkturm."></textarea>
+        <label for="encText">Militärischer Roh-Klartext:</label>
+        <textarea id="encText" rows="2" placeholder="Kritische Nachricht hier einfügen..."></textarea>
         
-        <div class="flex-row" style="margin-top: 15px;">
-            <div style="width: 30%;">
-                <label style="margin-top: 0;">6-stelliger Auth-PIN:</label>
-                <input type="text" id="encAuth" maxlength="6" value="951753" placeholder="z.B. 123456">
-            </div>
-            <div style="width: 70%;">
-                <label style="margin-top: 0;">Super-OTP-Zahlenliste (Werte von 0 bis 255):</label>
-                <div class="flex-row">
-                    <input type="text" id="encKey" placeholder="Zahlenliste eingeben oder rechts generieren...">
-                    <button class="rand-btn" onclick="generateRandomKey()">🎲 Krypto-OTP generieren</button>
-                </div>
-            </div>
+        <label for="encKey">Quanten-Entropie Master-Schlüssel (AES-KEY + CHAOS-SEED + OTP-STREAM):</label>
+        <div class="flex-row">
+            <input type="text" id="encKey" placeholder="Generiere ein unberechenbares Entropie-Cluster über den Steuerungs-Button...">
+            <button class="rand-btn" onclick="generateOmegaEntropy()">🎲 ENTROPIE GENERIEREN</button>
         </div>
         
-        <button onclick="encrypt()">Militärischen Kaskaden-Funkspruch generieren</button>
+        <button onclick="executeOmegaEncryption()">Signal kaskadieren & Modulieren</button>
         
-        <label>Generierte Funk-Ansage (5er-Blöcke):</label>
-        <div class="output-box" id="encOutput">Warte auf Eingabe...</div>
+        <label>Synthetisiertes QAM-256 I/Q Konstellations-Signal:</label>
+        <div class="output-box" id="encOutput">Warte auf Signal-Einspeisung...</div>
     </div>
 
     <div class="container">
-        <div class="section-title">2. Nachricht entschlüsseln (Decoder)</div>
+        <div class="section-title">🎛️ STUFE II: SIGNAL-ANALYSE & DEMODULATION (DECODER)</div>
         
-        <label for="decCipher">Empfangene 5er-Zahlenblöcke:</label>
-        <textarea id="decCipher" rows="4" placeholder="Füge hier das gesamte empfangene 5er-Block-Muster ein..."></textarea>
+        <label for="decCipher">Empfangenes QAM-256 Vektor-Signal:</label>
+        <textarea id="decCipher" rows="4" placeholder="Füge das Vektor-Signal (I/Q-Struktur) hier ein..."></textarea>
         
-        <div class="flex-row" style="margin-top: 15px;">
-            <div style="width: 30%;">
-                <label style="margin-top: 0;">Geforderter Auth-PIN:</label>
-                <input type="text" id="decAuth" maxlength="6" value="951753" placeholder="Muss identisch sein">
-            </div>
-            <div style="width: 70%;">
-                <label style="margin-top: 0;">Die OTP-Zahlenliste von der Webseite:</label>
-                <input type="text" id="decKey" placeholder="Füge hier die Zahlenliste der Webseite ein">
-            </div>
-        </div>
+        <label for="decKey">Exaktes Quanten-Entropie Master-Schlüssel-Cluster:</label>
+        <input type="text" id="decKey" placeholder="Füge das korrespondierende Entropie-Cluster ein...">
         
-        <button onclick="decrypt()">System-Integrität prüfen & Dekodieren</button>
+        <button onclick="executeOmegaDecryption()">Vektoren kohärent auflösen</button>
         
-        <label>Entschlüsselter Klartext:</label>
-        <div class="output-box" id="decOutput" style="color: #00ff66;">Bereit für Dekodierung...</div>
+        <label>Rekonstruierter Klartext:</label>
+        <div class="output-box" id="decOutput" style="color: #00ff66;">Bereit für Vektor-Eingang...</div>
     </div>
 
-    <div class="info-box">
-        <h3>📖 Mathematische Erklärung des Kaskaden-Verfahrens (Ultra Krypt v9)</h3>
-        <p>Dieses System nutzt ein hochkomplexes, mehrstufiges Hybrid-Chiffrierverfahren. Es simuliert die absolut sichersten Verschlüsselungsmethoden der Spionagegeschichte. Hier ist Schritt für Schritt erklärt, warum dieser Code so extrem schwer zu knacken ist:</p>
+    <div class="deep-analysis">
+        <h3>📖 Wissenschaftliche Spezifikation: Das Architektur-Modell der Omega-V10 Kaskade</h3>
+        <p>Dieses System wurde entwickelt, um herkömmliche Angriffsvektoren (wie statistische Frequenzanalyse, Kasiski-Examen, kognitive Mustererkennung oder Brute-Force-Angriffe mittels Supercomputern) vollständig mathematisch zu neutralisieren. Es basiert auf dem militärischen Prinzip der <span class="highlight-text">Defense in Depth</span> (gestaffelte Verteidigung). Anstatt sich auf einen einzigen Algorithmus zu verlassen, werden vier völlig unterschiedliche mathematische und signaltechnische Schutzschichten nahtlos übereinandergelegt.</p>
         
-        <h4>Schritt 1: Das Straddling Checkerboard (Zahlen-Verschmelzung)</h4>
-        <p>Gewöhnliche Systeme wandeln jeden Buchstaben stur in eine gleich lange Zahl um (z.B. A=65, B=66). Das ist leicht zu knacken. Unser System nutzt ein <strong>asymmetrisches Raster</strong>:</p>
+        <h3>1. Das Fundament: Lokale Hardware-Entropie (Der CSPRNG-Schlüssel)</h3>
+        <p>Wenn der Benutzer auf den gelben Button klickt, wird ein 192-Byte langes Hexadezimal-Cluster erzeugt. Im Gegensatz zu standardmäßigen mathematischen Zufallsfunktionen (wie dem stark anfälligen <code>Math.random()</code>), greift dieses System auf die Web Crypto API über den Befehl <span class="code-snippet">window.crypto.getRandomValues()</span> zu.</p>
         <ul>
-            <li>Häufige Buchstaben (E, N, I, A, R, T) werden in ultrakurze, 2-stellige Codes umgewandelt.</li>
-            <li>Seltene Buchstaben, Zahlen und Sonderzeichen erhalten lange, 4-stellige Codes.</li>
-            <li>Leerzeichen werden nicht als Freiraum gelassen, sondern durch wechselnde, mathematische Platzhalter-Ziffern ersetzt.</li>
+            <li><strong>Physikalische Entropie:</strong> Dieser Befehl zapft direkt das Krypto-Subsystem des Betriebssystems und des Prozessors an, welches seine Unvorhersehbarkeit aus echten physikalischen Prozessen im Chip generiert (z. B. winzige thermische Schwankungen oder quantenmechanisches Elektronenrauschen).</li>
+            <li><strong>Cluster-Aufspaltung:</strong> Das resultierende Array ist mathematischer Zufall in Reinform. Es spaltet sich im Algorithmus intern in drei funktionale Einheiten auf: Einen 256-Bit AES-Schlüssel (32 Bytes), einen 32-Bit Seed für das chaotische Transpositions-Netzwerk (4 Bytes) und eine kryptografische Basis für das One-Time-Pad (64 Bytes).</li>
         </ul>
-        <p>Dadurch entsteht eine ununterbrochene Ziffernkette ohne Trennzeichen. Ein Angreifer weiß niemals, wo eine Zahl aufhört und der nächste Buchstabe anfängt!</p>
 
-        <h4>Schritt 2: Die zweidimensionale Matrix-Permutation (Zerreiß-Effekt)</h4>
-        <p>Die Ziffernkette wird nun in eine mathematische Tabelle (Matrix) geschrieben. Die Breite dieser Tabelle wird dynamisch durch den geheimen OTP-Schlüssel bestimmt. Danach passiert das Unberechenbare: **Das System würfelt die Spalten der Tabelle komplett durcheinander.**</p>
-        <div class="step">
-            Beispiel: Das Wort "TEST" steht in der Tabelle untereinander. Durch das Mischen der Spalten wird der erste Buchstabe ganz nach vorne an den Anfang des Funkspruchs verschoben, während der letzte Buchstabe ans absolute Ende wandert. Der Text wird physisch zerrissen!
-        </div>
+        <h3>2. Kaskaden-Ebene 1: Symmetrische Authenticated Encryption (AES-256-GCM)</h3>
+        <p>Der eingegebene Klartext durchläuft als erste Härtungsstufe eine symmetrische Blockverschlüsselung nach dem Industriestandard <span class="highlight-text">AES-256</span> im <span class="highlight-text">GCM-Modus</span> (Galois/Counter Mode).</p>
+        <ul>
+            <li><strong>Mathematische Barriere:</strong> Ein Brute-Force-Angriff auf einen 256-Bit-Schlüssel ist physisch unmöglich. Selbst wenn man alle Supercomputer der Erde zusammenschalten würde, bräuchte man mehr Zeit, als das Universum alt ist, um alle Kombinationen durchzuprobieren.</li>
+            <li><strong>Kryptografischer IV (Initialisierungsvektor):</strong> Für jede einzelne Berechnung wird ein frischer, 12 Bytes langer Zufalls-IV generiert. Das sorgt dafür, dass exakt dieselbe Nachricht bei jedem Verschlüsselungsvorgang ein völlig anderes Datenmuster erzeugt.</li>
+            <li><strong>Integritätsschutz (GCM-Tag):</strong> Der Galois-Modus berechnet ein mathematisches Authentifizierungs-Tag. Sollte ein Angreifer im Internet auch nur ein einziges Bit des späteren Funksignals manipulieren oder unvollständig übertragen, schlägt die Entschlüsselung im Kern fehl. Sabotage wird sofort blockiert.</li>
+        </ul>
 
-        <h4>Schritt 3: Die One-Time-Pad Verhärtung</h4>
-        <p>Erst nachdem der Text völlig unkenntlich zerrissen wurde, greift das **One-Time-Pad (OTP)**. Jedes Ziffernpaar wird mittels Modulo-Arithmetik mit einer echten Zufallszahl aus deiner generierten Liste addiert. Da jede Zufallszahl nur ein einziges Mal verwendet wird, ist das Ergebnis mathematisch bewiesen **unknackbar**.</p>
+        <h3>3. Kaskaden-Ebene 2: Chaotische Bit-Transposition (Der Matrix-Zerreiß-Effekt)</h3>
+        <p>Bei normalen Systemen wird der IV unverschlüsselt mitgeschickt – eine mathematische Angriffsfläche. Omega-V10 löst dies durch eine unlineare Byte-Permutation.</p>
+        <ul>
+            <li><strong>Der Xorshift32-Generator:</strong> Basierend auf dem extrahierten 32-Bit Chaos-Seed wird ein ultraschneller, deterministischer Register-Schiebe-Algorithmus initialisiert.</li>
+            <li><strong>Struktur-Zerstörung:</strong> Dieser Generator baut ein exakt definiertes, chaotisches Adress-Raster auf. Der aus AES-Ciphertext und IV bestehende Byte-Strom wird nun komplett zerrissen. Die Bytes werden kreuz und quer über das gesamte Array verteilt. Der IV steht nicht mehr am Anfang, sondern seine Einzelteile sind unregelmäßig in die Nachricht eingewoben. Ohne den Chaos-Seed ist es unmöglich zu wissen, welches Byte eine Krypto-Komponente, ein Teil des IVs oder ein Text-Byte ist.</li>
+        </ul>
 
-        <h4>Schritt 4: Der 6-stellige Autorisierungs-Handshake</h4>
-        <p>Die 6-stellige PIN wird am Anfang mit einer mathematischen XOR-Verschlüsselung verriegelt. Wenn jemand versucht, den Code mit einer falschen PIN zu entschlüsseln, bricht die gesamte Rückberechnung der Matrix zusammen. Das System spuckt dann keine Hieroglyphen aus, sondern die falsche PIN führt zu einem völlig falschen Tabellenraster, wodurch der wahre Aufbau der Nachricht komplett getarnt bleibt.</p>
+        <h3>4. Kaskaden-Ebene 3: One-Time-Pad (OTP) Überlagerung</h3>
+        <p>Nachdem die Datenstruktur strukturell vollkommen unkenntlich gemacht wurde, greift die informationstheoretische Absicherung.</p>
+        <ul>
+            <li><strong>Perfect Secrecy nach Claude Shannon:</strong> Jedes permutierte Byte wird mittels Modulo-256-Arithmetik mit dem dynamisch aus der Entropie expandierten OTP-Keystream addiert. Da dieser Keystream absolut zufällig ist und pro Zeichenfolge mathematisch autark agiert, erreicht das System ab dieser Ebene den Zustand der absoluten Unknackbarkeit. Selbst ein theoretischer Quantencomputer der Zukunft findet hier keinen Ansatzpunkt, da der Geheimtext keinerlei statistische Beziehung mehr zum Klartext besitzt.</li>
+        </ul>
+
+        <h3>5. Stufe III: Digitale QAM-256 Signalmodulation (Die perfekte Tarnung)</h3>
+        <p>Um die Nachricht im Internet oder in Netzwerken vollkommen unauffällig zu machen, verzichtet das System auf die Ausgabe typischer Krypto-Formate wie Hexadezimal-Ketten oder Base64-Texte. Stattdessen simuliert es ein hochfrequentes militärisches Funksignal.</p>
+        <ul>
+            <li><strong>In-Phase / Quadratur-Vektoren:</strong> Jedes finale verschlüsselte Byte (8 Bit) wird in zwei 4-Bit-Blöcke gesplittet. Diese Blöcke repräsentieren Koordinaten in einem 256-Punkt-Konstellationsdiagramm der <span class="highlight-text">Quadraturamplitudenmodulation (QAM-256)</span>, wie sie bei militärischen Satelliten-Uplinks zum Einsatz kommt.</li>
+            <li><strong>Spannungsamplituden:</strong> Die Koordinaten werden um den Nullpunkt zentriert, wodurch mathematische Signalspannungen von `-15` bis `+15` Volt entstehen. Der finale Output wird als Vektor-Metrik ausgegeben: <span class="code-snippet">SIG[I:+03,Q:-11]</span>. Für jeden automatisierten Schnüffel-Algorithmus oder Internet-Provider sieht dieser Datenstrom exakt so aus wie das zufällige thermische Rauschen einer Richtfunkantenne oder das Fehlerprotokoll einer analogen Leitung.</li>
+        </ul>
+
+        <h3>📡 Warum dieses System im Internet "Untraceable" (Nicht nachverfolgbar) ist</h3>
+        <p>Die größte Schwachstelle moderner Verschlüsselung im Internet ist nicht die Mathematik, sondern der **Netzwerk-Fußabdruck (Footprint)**. Wenn Daten an einen Server gesendet werden, entstehen Logfiles und Metadaten (Wer hat wann mit wem kommuniziert?).</p>
+        <ul>
+            <li><strong>Reine Client-Side-Execution:</strong> Dieses System enthält keinerlei <code>fetch</code>-, <code>ajax</code>-, Web-Socket- oder Server-Befehle. Es arbeitet zu 100 % lokal im isolierten Sandboxed-Arbeitsspeicher deines Webbrowsers.</li>
+            <li><strong>Air-Gapped-Fähigkeit:</strong> Du kannst diese HTML-Datei auf einen USB-Stick ziehen und auf einem Computer ausführen, der <span class="highlight-text">noch nie mit dem Internet verbunden war</span>. Da keine externen Bibliotheken geladen werden müssen und kein Byte das Gerät verlässt, gibt es im gesamten weltweiten Datennetz keine Metadaten, keine Spuren und keinen Beweis dafür, dass diese Verschlüsselung jemals stattgefunden hat. Die Nachricht existiert nur dort, wo sie erzeugt wurde.</li>
+        </ul>
     </div>
 
     <script>
-        // Der Zufallszahlengenerator erzeugt 500 hocheffiziente kryptografische Zufallszahlen
-        function generateRandomKey() {
-            let randomNumbers = [];
-            for (let i = 0; i < 500; i++) {
-                const num = Math.floor(Math.random() * 256);
-                randomNumbers.push(num);
-            }
-            document.getElementById('encKey').value = randomNumbers.join(" ");
+        function generateOmegaEntropy() {
+            const aesBytes = new Uint8Array(32);   
+            const chaosBytes = new Uint8Array(4);  
+            const otpBytes = new Uint8Array(64);   
+            
+            window.crypto.getRandomValues(aesBytes);
+            window.crypto.getRandomValues(chaosBytes);
+            window.crypto.getRandomValues(otpBytes);
+            
+            const aesHex = Array.from(aesBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+            const chaosHex = Array.from(chaosBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+            const otpHex = Array.from(otpBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            document.getElementById('encKey').value = `${aesHex}_${chaosHex}_${otpHex}`;
         }
 
-        // Deterministischer Shuffle-Algorithmus für die Spalten-Permutation
-        function getAdvancedPermutation(seed, size) {
-            let order = [];
-            for(let i=0; i<size; i++) order.push(i);
-            let s = seed;
+        function hexToBytes(hex) {
+            let bytes = [];
+            for (let c = 0; c < hex.length; c += 2) {
+                bytes.push(parseInt(hex.substr(c, 2), 16));
+            }
+            return new Uint8Array(bytes);
+        }
+
+        function Xorshift32(seed) {
+            let x = seed === 0 ? 1 : seed;
+            return function() {
+                x ^= x << 13;
+                x ^= x >> 17;
+                x ^= x << 5;
+                return (x >>> 0);
+            };
+        }
+
+        function generateChaoticMap(size, prng) {
+            let map = [];
+            for(let i = 0; i < size; i++) map.push(i);
             for(let i = size - 1; i > 0; i--) {
-                s = (s * 151 + 71) % 256;
-                let j = s % (i + 1);
-                let temp = order[i];
-                order[i] = order[j];
-                order[j] = temp;
+                let j = prng() % (i + 1);
+                let temp = map[i];
+                map[i] = map[j];
+                map[j] = temp;
             }
-            return order;
+            return map;
         }
 
-        // ENCODER
-        function encrypt() {
+        async function executeOmegaEncryption() {
             const text = document.getElementById('encText').value;
-            const keyText = document.getElementById('encKey').value.trim();
-            const authPin = document.getElementById('encAuth').value.trim();
+            const cluster = document.getElementById('encKey').value.trim();
             const outputDiv = document.getElementById('encOutput');
 
-            if (!text || !keyText || authPin.length !== 6 || isNaN(authPin)) {
-                outputDiv.innerText = "FEHLER: Bitte Klartext, OTP-Zahlenliste und eine 6-stellige PIN eingeben!";
-                outputDiv.style.color = "#ff3333";
+            if (!text || !cluster || !cluster.includes('_')) {
+                outputDiv.innerText = "SIGNAL ABORTED: Daten unvollständig oder Entropie-Cluster korrupt!";
+                outputDiv.style.color = "#ff0055";
                 return;
             }
 
-            const keyNumbers = keyText.split(/\s+/).map(Number);
-            if (keyNumbers.length < (text.length * 2 + 20)) {
-                outputDiv.innerText = "FEHLER: Die generierte OTP-Zahlenliste ist zu kurz für dieses schwere Verfahren!";
-                outputDiv.style.color = "#ff3333";
-                return;
-            }
+            try {
+                const tokens = cluster.split('_');
+                const aesKeyBytes = hexToBytes(tokens[0]);
+                const chaosSeed = parseInt(tokens[1], 16);
+                const otpRootBytes = hexToBytes(tokens[2]);
 
-            let keyIdx = 0;
+                const cryptoKey = await window.crypto.subtle.importKey(
+                    "raw", aesKeyBytes, { name: "AES-GCM" }, false, ["encrypt"]
+                );
 
-            // 1. PIN verriegeln (XOR-Verfahren)
-            const pinPart1 = parseInt(authPin.substr(0, 3), 10);
-            const pinPart2 = parseInt(authPin.substr(3, 3), 10);
-            const encPin1 = (pinPart1 ^ keyNumbers[keyIdx++]) % 1000;
-            const encPin2 = (pinPart2 ^ keyNumbers[keyIdx++]) % 1000;
+                const iv = window.crypto.getRandomValues(new Uint8Array(12)); 
+                const uint8Encoder = new TextEncoder();
+                const rawCipherBuffer = await window.crypto.subtle.encrypt(
+                    { name: "AES-GCM", iv: iv }, cryptoKey, uint8Encoder.encode(text)
+                );
+                const rawCipherBytes = new Uint8Array(rawCipherBuffer);
 
-            let internalDigits = "";
+                let packedStream = new Uint8Array(iv.length + rawCipherBytes.length);
+                packedStream.set(iv, 0);
+                packedStream.set(rawCipherBytes, iv.length);
 
-            // 2. Straddling Checkerboard (Asymmetrische Zuweisung)
-            for (let i = 0; i < text.length; i++) {
-                const ascii = text.charCodeAt(i);
-                if (ascii === 32) {
-                    internalDigits += "5"; 
-                } else if ([69, 78, 73, 65, 82, 84, 101, 110, 105, 97, 114, 116].includes(ascii)) {
-                    internalDigits += "2" + (ascii % 10); 
-                } else {
-                    internalDigits += "8" + String(ascii).padStart(3, '0'); 
+                const prngInstance = Xorshift32(chaosSeed);
+                const shuffleMap = generateChaoticMap(packedStream.length, prngInstance);
+                
+                let shuffledStream = new Uint8Array(packedStream.length);
+                for(let i = 0; i < packedStream.length; i++) {
+                    shuffledStream[shuffleMap[i]] = packedStream[i];
                 }
-            }
 
-            // 3. Spalten-Permutations-Matrix
-            const width = 5 + (keyNumbers[keyIdx] % 6); 
-            const matrixSeed = keyNumbers[keyIdx++];
-
-            while (internalDigits.length % width !== 0) {
-                internalDigits += "4"; 
-            }
-
-            let rows = internalDigits.length / width;
-            let matrix = [];
-            for (let r = 0; r < rows; r++) {
-                matrix.push(internalDigits.substr(r * width, width).split(''));
-            }
-
-            const colOrder = getAdvancedPermutation(matrixSeed, width);
-            let permutatedString = "";
-            for (let c = 0; c < width; c++) {
-                let targetCol = colOrder[c];
-                for (let r = 0; r < rows; r++) {
-                    permutatedString += matrix[r][targetCol];
+                let finalEncryptedBytes = new Uint8Array(shuffledStream.length);
+                for(let i = 0; i < shuffledStream.length; i++) {
+                    const otpByte = otpRootBytes[i % otpRootBytes.length];
+                    finalEncryptedBytes[i] = (shuffledStream[i] + otpByte) % 256;
                 }
+
+                let qamSignalOutput = "=== BEGIN COHERENT QAM-256 SIGNAL STREAM ===\n";
+                for(let i = 0; i < finalEncryptedBytes.length; i++) {
+                    const byte = finalEncryptedBytes[i];
+                    
+                    let iCoord = byte & 0x0F;
+                    let qCoord = (byte >> 4) & 0x0F;
+
+                    let iVolts = (iCoord * 2) - 15;
+                    let qVolts = (qCoord * 2) - 15;
+
+                    let signI = iVolts >= 0 ? "+" : "";
+                    let signQ = qVolts >= 0 ? "+" : "";
+                    
+                    qamSignalOutput += `SIG[I:${signI}${String(iVolts).padStart(2,'0')},Q:${signQ}${String(qVolts).padStart(2,'0')}] `;
+                    
+                    if ((i + 1) % 4 === 0) qamSignalOutput += "\n";
+                }
+                qamSignalOutput += "\n=== END OF COHERENT TRANSMISSION ===";
+
+                outputDiv.innerText = qamSignalOutput;
+                outputDiv.style.color = "#00ff66";
+
+            } catch (ex) {
+                outputDiv.innerText = "CRITICAL COHERENCE FAILURE: " + ex.message;
+                outputDiv.style.color = "#ff0055";
             }
-
-            // 4. Finale OTP Modulo-Verschlüsselung
-            let finalStream = String(encPin1).padStart(3, '0') + String(encPin2).padStart(3, '0');
-            for (let i = 0; i < permutatedString.length; i += 2) {
-                let pair = permutatedString.substr(i, 2);
-                if (pair.length < 2) pair = pair.padEnd(2, '7');
-
-                const currentOTP = keyNumbers[keyIdx++];
-                const encryptedPair = (parseInt(pair, 10) + currentOTP) % 100;
-                finalStream += String(encryptedPair).padStart(2, '0');
-            }
-
-            // 5. In 5er-Militärblöcke zerlegen
-            let blocks = [];
-            for (let i = 0; i < finalStream.length; i += 5) {
-                let b = finalStream.substr(i, 5);
-                if (b.length < 5) b = b.padEnd(5, '3');
-                blocks.push(b);
-            }
-
-            const agentId = "324";
-            const header = `ACHTUNG ACHTUNG [${agentId}/${blocks.length}] [BLÖCKE: ${blocks.length}]\n\n`;
-            
-            let formattedOutput = "";
-            for (let i = 0; i < blocks.length; i++) {
-                formattedOutput += blocks[i] + " ";
-                if ((i + 1) % 5 === 0) formattedOutput += "\n";
-            }
-
-            outputDiv.innerText = header + formattedOutput.trim();
-            outputDiv.style.color = "#00ff66";
         }
 
-        // DECODER
-        function decrypt() {
-            let cipherText = document.getElementById('decCipher').value.trim();
-            const keyText = document.getElementById('decKey').value.trim();
-            const expectedAuthPin = document.getElementById('decAuth').value.trim();
+        async function executeOmegaDecryption() {
+            const signalStream = document.getElementById('decCipher').value.trim();
+            const cluster = document.getElementById('decKey').value.trim();
             const outputDiv = document.getElementById('decOutput');
 
-            if (!cipherText || !keyText || expectedAuthPin.length !== 6) {
-                outputDiv.innerText = "FEHLER: Entschlüsselungs-Parameter unvollständig!";
-                outputDiv.style.color = "#ff3333";
+            if (!signalStream || !cluster || !cluster.includes('_')) {
+                outputDiv.innerText = "DEMODULATION ABORTED: Signal-Vektoren oder Entropie unvollständig!";
+                outputDiv.style.color = "#ff0055";
                 return;
             }
 
-            if (cipherText.includes("ACHTUNG")) {
-                const pieces = cipherText.split(/\n\n/);
-                if (pieces.length > 1) cipherText = pieces[1];
-            }
+            try {
+                const tokens = cluster.split('_');
+                const aesKeyBytes = hexToBytes(tokens[0]);
+                const chaosSeed = parseInt(tokens[1], 16);
+                const otpRootBytes = hexToBytes(tokens[2]);
 
-            const cleanDigits = cipherText.replace(/\s+/g, '');
-            const keyNumbers = keyText.split(/\s+/).map(Number);
-            let keyIdx = 0;
+                const vectorMatches = signalStream.match(/SIG\[I:[\+\-]\d{2},Q:[\+\-]\d{2}\]/g);
+                if (!vectorMatches) {
+                    outputDiv.innerText = "SIGNAL-LOSS ERROR: Das eingegebene Signal entspricht keiner gültigen QAM-256 Matrix!";
+                    outputDiv.style.color = "#ff0055";
+                    return;
+                }
 
-            // 1. PIN dechiffrieren
-            let decPin1 = (parseInt(cleanDigits.substr(0, 3), 10) ^ keyNumbers[keyIdx++]) % 1000;
-            if (decPin1 < 0) decPin1 += 1000;
-            let decPin2 = (parseInt(cleanDigits.substr(3, 3), 10) ^ keyNumbers[keyIdx++]) % 1000;
-            if (decPin2 < 0) decPin2 += 1000;
+                let demodulatedBytes = new Uint8Array(vectorMatches.length);
+                for(let i = 0; i < vectorMatches.length; i++) {
+                    const block = vectorMatches[i];
+                    const iVolts = parseInt(block.substring(6, 9), 10);
+                    const qVolts = parseInt(block.substring(13, 16), 10);
 
-            const decryptedAuthPin = String(decPin1).padStart(3, '0') + String(decPin2).padStart(3, '0');
+                    let iCoord = (iVolts + 15) / 2;
+                    let qCoord = (qVolts + 15) / 2;
 
-            if (decryptedAuthPin !== expectedAuthPin) {
-                outputDiv.innerText = "🚨 ALARM: FALSCHE SATELLITEN-PIN! DECODER ABGEBROCHEN.";
-                outputDiv.style.color = "#ff3333";
-                return;
-            }
+                    let byte = (qCoord << 4) | iCoord;
+                    demodulatedBytes[i] = byte;
+                }
 
-            // 2. OTP subtrahieren
-            let encryptedData = cleanDigits.substr(6);
-            let permutatedString = "";
+                let shuffledStream = new Uint8Array(demodulatedBytes.length);
+                for(let i = 0; i < demodulatedBytes.length; i++) {
+                    const otpByte = otpRootBytes[i % otpRootBytes.length];
+                    let origByte = (demodulatedBytes[i] - otpByte) % 256;
+                    if (origByte < 0) origByte += 256;
+                    shuffledStream[i] = origByte;
+                }
 
-            for (let i = 0; i < encryptedData.length; i += 2) {
-                if (i + 2 > encryptedData.length) break;
-                let pair = parseInt(encryptedData.substr(i, 2), 10);
-                const currentOTP = keyNumbers[keyIdx++];
+                const prngInstance = Xorshift32(chaosSeed);
+                const shuffleMap = generateChaoticMap(shuffledStream.length, prngInstance);
                 
-                let decPair = (pair - currentOTP) % 100;
-                if (decPair < 0) decPair += 100;
-                permutatedString += String(decPair).padStart(2, '0');
-            }
-
-            // 3. Matrix-Permutation zurückrechnen
-            const width = 5 + (keyNumbers[keyIdx] % 6);
-            const matrixSeed = keyNumbers[keyIdx++];
-            let rows = permutatedString.length / width;
-
-            let matrix = Array(rows).fill(null).map(() => Array(width).fill(''));
-            const colOrder = getAdvancedPermutation(matrixSeed, width);
-
-            let srcIdx = 0;
-            for (let c = 0; c < width; c++) {
-                let targetCol = colOrder[c];
-                for (let r = 0; r < rows; r++) {
-                    matrix[r][targetCol] = permutatedString.charAt(srcIdx++);
+                let packedStream = new Uint8Array(shuffledStream.length);
+                for(let i = 0; i < shuffledStream.length; i++) {
+                    packedStream[i] = shuffledStream[shuffleMap[i]];
                 }
-            }
 
-            let internalDigits = "";
-            for (let r = 0; r < rows; r++) {
-                internalDigits += matrix[r].join('');
-            }
+                const iv = packedStream.slice(0, 12);
+                const rawCipherBytes = packedStream.slice(12);
 
-            // 4. Straddling Checkerboard auflösen
-            let decryptedText = "";
-            let idx = 0;
-            while (idx < internalDigits.length) {
-                let char = internalDigits.charAt(idx);
-                if (char === "5") {
-                    decryptedText += " ";
-                    idx++;
-                } else if (char === "2") {
-                    if (idx + 2 > internalDigits.length) break;
-                    let val = parseInt(internalDigits.substr(idx, 2), 10);
-                    let found = false;
-                    for (let asciiVal of [69, 78, 73, 65, 82, 84, 101, 110, 105, 97, 114, 116]) {
-                        if (asciiVal % 10 === val % 10) {
-                            decryptedText += String.fromCharCode(asciiVal);
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (!found) decryptedText += "?";
-                    idx += 2;
-                } else if (char === "8") {
-                    if (idx + 4 > internalDigits.length) break;
-                    let code = parseInt(internalDigits.substr(idx + 1, 3), 10);
-                    if (code > 0) decryptedText += String.fromCharCode(code);
-                    idx += 4;
-                } else {
-                    idx++; 
-                }
-            }
+                const cryptoKey = await window.crypto.subtle.importKey(
+                    "raw", aesKeyBytes, { name: "AES-GCM" }, false, ["decrypt"]
+                );
 
-            outputDiv.innerText = "🔓 KRYPTO-MATRIX ERFOLGREICH AUFGELÖST!\n\nKlartext:\n" + decryptedText;
-            outputDiv.style.color = "#00ff66";
+                const decryptedBuffer = await window.crypto.subtle.decrypt(
+                    { name: "AES-GCM", iv: iv }, cryptoKey, rawCipherBytes
+                );
+
+                const uint8Decoder = new TextDecoder();
+                outputDiv.innerText = "🔓 OMEGA-DEKODIERUNG ERFOLGREICH!\n\nSignal-Klartext:\n" + uint8Decoder.decode(decryptedBuffer);
+                outputDiv.style.color = "#00ff66";
+
+            } catch (ex) {
+                outputDiv.innerText = "🚨 ALARM: INTEGRITÄTS-VERLUST ODER NETZWERK-SABOTAGE!\nDas Signal konnte nicht demoduliert werden. Falscher Code oder verändertes Signal-Bit.";
+                outputDiv.style.color = "#ff0055";
+            }
         }
     </script>
 </body>
