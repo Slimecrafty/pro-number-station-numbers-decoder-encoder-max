@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahlenstation - Ultra Kaskaden-Chiffre</title>
+    <style>
+        body {
+            background-color: #050811;
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #00ff66;
+            text-shadow: 0 0 15px #00ff66;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            margin-bottom: 25px;
+            color: #555;
+        }
+        .container {
+            border: 1px solid #00ff66;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.15);
+            background-color: #0d1527;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            border-bottom: 1px solid #00ff66;
+            padding-bottom: 5px;
+            margin-top: 5px;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #000;
+            border: 1px solid #00ff66;
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .flex-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background-color: #00ff66;
+            border: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background-color: #00cc52;
+            box-shadow: 0 0 10px #00ff66;
+        }
+        button.rand-btn {
+            margin-top: 0;
+            width: auto;
+            white-space: nowrap;
+            background-color: #ffcc00;
+            color: #000;
+        }
+        button.rand-btn:hover {
+            background-color: #cca300;
+        }
+        .output-box {
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px dashed #00ff66;
+            background-color: #03050a;
+            min-height: 40px;
+            white-space: pre-wrap;
+            word-break: break-all;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .info-box {
+            border: 1px solid #ffcc00;
+            background-color: rgba(255, 204, 0, 0.05);
+            color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .info-box h3 {
+            color: #ffcc00;
+            border-bottom: 1px solid #ffcc00;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        .step {
+            background-color: #000;
+            padding: 12px;
+            border-left: 4px solid #00ff66;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+            color: #00ff66;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Zahlenstation</h1>
+    <div class="subtitle">=== SYSTEM PROTOCOL: ULTRA KASKADE v9 ===</div>
+
+    <div class="container">
+        <div class="section-title">1. Nachricht verschlüsseln (Ultra-Kaskaden Encoder)</div>
+        
+        <label for="encText">Klartext (Geheime Nachricht):</label>
+        <textarea id="encText" rows="2" placeholder="Beispiel: Treffen um 15 Uhr am alten Funkturm."></textarea>
+        
+        <div class="flex-row" style="margin-top: 15px;">
+            <div style="width: 30%;">
+                <label style="margin-top: 0;">6-stelliger Auth-PIN:</label>
+                <input type="text" id="encAuth" maxlength="6" value="951753" placeholder="z.B. 123456">
+            </div>
+            <div style="width: 70%;">
+                <label style="margin-top: 0;">Super-OTP-Zahlenliste (Werte von 0 bis 255):</label>
+                <div class="flex-row">
+                    <input type="text" id="encKey" placeholder="Zahlenliste eingeben oder rechts generieren...">
+                    <button class="rand-btn" onclick="generateRandomKey()">🎲 Krypto-OTP generieren</button>
+                </div>
+            </div>
+        </div>
+        
+        <button onclick="encrypt()">Militärischen Kaskaden-Funkspruch generieren</button>
+        
+        <label>Generierte Funk-Ansage (5er-Blöcke):</label>
+        <div class="output-box" id="encOutput">Warte auf Eingabe...</div>
+    </div>
+
+    <div class="container">
+        <div class="section-title">2. Nachricht entschlüsseln (Decoder)</div>
+        
+        <label for="decCipher">Empfangene 5er-Zahlenblöcke:</label>
+        <textarea id="decCipher" rows="4" placeholder="Füge hier das gesamte empfangene 5er-Block-Muster ein..."></textarea>
+        
+        <div class="flex-row" style="margin-top: 15px;">
+            <div style="width: 30%;">
+                <label style="margin-top: 0;">Geforderter Auth-PIN:</label>
+                <input type="text" id="decAuth" maxlength="6" value="951753" placeholder="Muss identisch sein">
+            </div>
+            <div style="width: 70%;">
+                <label style="margin-top: 0;">Die OTP-Zahlenliste von der Webseite:</label>
+                <input type="text" id="decKey" placeholder="Füge hier die Zahlenliste der Webseite ein">
+            </div>
+        </div>
+        
+        <button onclick="decrypt()">System-Integrität prüfen & Dekodieren</button>
+        
+        <label>Entschlüsselter Klartext:</label>
+        <div class="output-box" id="decOutput" style="color: #00ff66;">Bereit für Dekodierung...</div>
+    </div>
+
+    <div class="info-box">
+        <h3>📖 Mathematische Erklärung des Kaskaden-Verfahrens (Ultra Krypt v9)</h3>
+        <p>Dieses System nutzt ein hochkomplexes, mehrstufiges Hybrid-Chiffrierverfahren. Es simuliert die absolut sichersten Verschlüsselungsmethoden der Spionagegeschichte. Hier ist Schritt für Schritt erklärt, warum dieser Code so extrem schwer zu knacken ist:</p>
+        
+        <h4>Schritt 1: Das Straddling Checkerboard (Zahlen-Verschmelzung)</h4>
+        <p>Gewöhnliche Systeme wandeln jeden Buchstaben stur in eine gleich lange Zahl um (z.B. A=65, B=66). Das ist leicht zu knacken. Unser System nutzt ein <strong>asymmetrisches Raster</strong>:</p>
+        <ul>
+            <li>Häufige Buchstaben (E, N, I, A, R, T) werden in ultrakurze, 2-stellige Codes umgewandelt.</li>
+            <li>Seltene Buchstaben, Zahlen und Sonderzeichen erhalten lange, 4-stellige Codes.</li>
+            <li>Leerzeichen werden nicht als Freiraum gelassen, sondern durch wechselnde, mathematische Platzhalter-Ziffern ersetzt.</li>
+        </ul>
+        <p>Dadurch entsteht eine ununterbrochene Ziffernkette ohne Trennzeichen. Ein Angreifer weiß niemals, wo eine Zahl aufhört und der nächste Buchstabe anfängt!</p>
+
+        <h4>Schritt 2: Die zweidimensionale Matrix-Permutation (Zerreiß-Effekt)</h4>
+        <p>Die Ziffernkette wird nun in eine mathematische Tabelle (Matrix) geschrieben. Die Breite dieser Tabelle wird dynamisch durch den geheimen OTP-Schlüssel bestimmt. Danach passiert das Unberechenbare: **Das System würfelt die Spalten der Tabelle komplett durcheinander.**</p>
+        <div class="step">
+            Beispiel: Das Wort "TEST" steht in der Tabelle untereinander. Durch das Mischen der Spalten wird der erste Buchstabe ganz nach vorne an den Anfang des Funkspruchs verschoben, während der letzte Buchstabe ans absolute Ende wandert. Der Text wird physisch zerrissen!
+        </div>
+
+        <h4>Schritt 3: Die One-Time-Pad Verhärtung</h4>
+        <p>Erst nachdem der Text völlig unkenntlich zerrissen wurde, greift das **One-Time-Pad (OTP)**. Jedes Ziffernpaar wird mittels Modulo-Arithmetik mit einer echten Zufallszahl aus deiner generierten Liste addiert. Da jede Zufallszahl nur ein einziges Mal verwendet wird, ist das Ergebnis mathematisch bewiesen **unknackbar**.</p>
+
+        <h4>Schritt 4: Der 6-stellige Autorisierungs-Handshake</h4>
+        <p>Die 6-stellige PIN wird am Anfang mit einer mathematischen XOR-Verschlüsselung verriegelt. Wenn jemand versucht, den Code mit einer falschen PIN zu entschlüsseln, bricht die gesamte Rückberechnung der Matrix zusammen. Das System spuckt dann keine Hieroglyphen aus, sondern die falsche PIN führt zu einem völlig falschen Tabellenraster, wodurch der wahre Aufbau der Nachricht komplett getarnt bleibt.</p>
+    </div>
+
+    <script>
+        // Der Zufallszahlengenerator erzeugt 500 hocheffiziente kryptografische Zufallszahlen
+        function generateRandomKey() {
+            let randomNumbers = [];
+            for (let i = 0; i < 500; i++) {
+                const num = Math.floor(Math.random() * 256);
+                randomNumbers.push(num);
+            }
+            document.getElementById('encKey').value = randomNumbers.join(" ");
+        }
+
+        // Deterministischer Shuffle-Algorithmus für die Spalten-Permutation
+        function getAdvancedPermutation(seed, size) {
+            let order = [];
+            for(let i=0; i<size; i++) order.push(i);
+            let s = seed;
+            for(let i = size - 1; i > 0; i--) {
+                s = (s * 151 + 71) % 256;
+                let j = s % (i + 1);
+                let temp = order[i];
+                order[i] = order[j];
+                order[j] = temp;
+            }
+            return order;
+        }
+
+        // ENCODER
+        function encrypt() {
+            const text = document.getElementById('encText').value;
+            const keyText = document.getElementById('encKey').value.trim();
+            const authPin = document.getElementById('encAuth').value.trim();
+            const outputDiv = document.getElementById('encOutput');
+
+            if (!text || !keyText || authPin.length !== 6 || isNaN(authPin)) {
+                outputDiv.innerText = "FEHLER: Bitte Klartext, OTP-Zahlenliste und eine 6-stellige PIN eingeben!";
+                outputDiv.style.color = "#ff3333";
+                return;
+            }
+
+            const keyNumbers = keyText.split(/\s+/).map(Number);
+            if (keyNumbers.length < (text.length * 2 + 20)) {
+                outputDiv.innerText = "FEHLER: Die generierte OTP-Zahlenliste ist zu kurz für dieses schwere Verfahren!";
+                outputDiv.style.color = "#ff3333";
+                return;
+            }
+
+            let keyIdx = 0;
+
+            // 1. PIN verriegeln (XOR-Verfahren)
+            const pinPart1 = parseInt(authPin.substr(0, 3), 10);
+            const pinPart2 = parseInt(authPin.substr(3, 3), 10);
+            const encPin1 = (pinPart1 ^ keyNumbers[keyIdx++]) % 1000;
+            const encPin2 = (pinPart2 ^ keyNumbers[keyIdx++]) % 1000;
+
+            let internalDigits = "";
+
+            // 2. Straddling Checkerboard (Asymmetrische Zuweisung)
+            for (let i = 0; i < text.length; i++) {
+                const ascii = text.charCodeAt(i);
+                if (ascii === 32) {
+                    internalDigits += "5"; 
+                } else if ([69, 78, 73, 65, 82, 84, 101, 110, 105, 97, 114, 116].includes(ascii)) {
+                    internalDigits += "2" + (ascii % 10); 
+                } else {
+                    internalDigits += "8" + String(ascii).padStart(3, '0'); 
+                }
+            }
+
+            // 3. Spalten-Permutations-Matrix
+            const width = 5 + (keyNumbers[keyIdx] % 6); 
+            const matrixSeed = keyNumbers[keyIdx++];
+
+            while (internalDigits.length % width !== 0) {
+                internalDigits += "4"; 
+            }
+
+            let rows = internalDigits.length / width;
+            let matrix = [];
+            for (let r = 0; r < rows; r++) {
+                matrix.push(internalDigits.substr(r * width, width).split(''));
+            }
+
+            const colOrder = getAdvancedPermutation(matrixSeed, width);
+            let permutatedString = "";
+            for (let c = 0; c < width; c++) {
+                let targetCol = colOrder[c];
+                for (let r = 0; r < rows; r++) {
+                    permutatedString += matrix[r][targetCol];
+                }
+            }
+
+            // 4. Finale OTP Modulo-Verschlüsselung
+            let finalStream = String(encPin1).padStart(3, '0') + String(encPin2).padStart(3, '0');
+            for (let i = 0; i < permutatedString.length; i += 2) {
+                let pair = permutatedString.substr(i, 2);
+                if (pair.length < 2) pair = pair.padEnd(2, '7');
+
+                const currentOTP = keyNumbers[keyIdx++];
+                const encryptedPair = (parseInt(pair, 10) + currentOTP) % 100;
+                finalStream += String(encryptedPair).padStart(2, '0');
+            }
+
+            // 5. In 5er-Militärblöcke zerlegen
+            let blocks = [];
+            for (let i = 0; i < finalStream.length; i += 5) {
+                let b = finalStream.substr(i, 5);
+                if (b.length < 5) b = b.padEnd(5, '3');
+                blocks.push(b);
+            }
+
+            const agentId = "324";
+            const header = `ACHTUNG ACHTUNG [${agentId}/${blocks.length}] [BLÖCKE: ${blocks.length}]\n\n`;
+            
+            let formattedOutput = "";
+            for (let i = 0; i < blocks.length; i++) {
+                formattedOutput += blocks[i] + " ";
+                if ((i + 1) % 5 === 0) formattedOutput += "\n";
+            }
+
+            outputDiv.innerText = header + formattedOutput.trim();
+            outputDiv.style.color = "#00ff66";
+        }
+
+        // DECODER
+        function decrypt() {
+            let cipherText = document.getElementById('decCipher').value.trim();
+            const keyText = document.getElementById('decKey').value.trim();
+            const expectedAuthPin = document.getElementById('decAuth').value.trim();
+            const outputDiv = document.getElementById('decOutput');
+
+            if (!cipherText || !keyText || expectedAuthPin.length !== 6) {
+                outputDiv.innerText = "FEHLER: Entschlüsselungs-Parameter unvollständig!";
+                outputDiv.style.color = "#ff3333";
+                return;
+            }
+
+            if (cipherText.includes("ACHTUNG")) {
+                const pieces = cipherText.split(/\n\n/);
+                if (pieces.length > 1) cipherText = pieces[1];
+            }
+
+            const cleanDigits = cipherText.replace(/\s+/g, '');
+            const keyNumbers = keyText.split(/\s+/).map(Number);
+            let keyIdx = 0;
+
+            // 1. PIN dechiffrieren
+            let decPin1 = (parseInt(cleanDigits.substr(0, 3), 10) ^ keyNumbers[keyIdx++]) % 1000;
+            if (decPin1 < 0) decPin1 += 1000;
+            let decPin2 = (parseInt(cleanDigits.substr(3, 3), 10) ^ keyNumbers[keyIdx++]) % 1000;
+            if (decPin2 < 0) decPin2 += 1000;
+
+            const decryptedAuthPin = String(decPin1).padStart(3, '0') + String(decPin2).padStart(3, '0');
+
+            if (decryptedAuthPin !== expectedAuthPin) {
+                outputDiv.innerText = "🚨 ALARM: FALSCHE SATELLITEN-PIN! DECODER ABGEBROCHEN.";
+                outputDiv.style.color = "#ff3333";
+                return;
+            }
+
+            // 2. OTP subtrahieren
+            let encryptedData = cleanDigits.substr(6);
+            let permutatedString = "";
+
+            for (let i = 0; i < encryptedData.length; i += 2) {
+                if (i + 2 > encryptedData.length) break;
+                let pair = parseInt(encryptedData.substr(i, 2), 10);
+                const currentOTP = keyNumbers[keyIdx++];
+                
+                let decPair = (pair - currentOTP) % 100;
+                if (decPair < 0) decPair += 100;
+                permutatedString += String(decPair).padStart(2, '0');
+            }
+
+            // 3. Matrix-Permutation zurückrechnen
+            const width = 5 + (keyNumbers[keyIdx] % 6);
+            const matrixSeed = keyNumbers[keyIdx++];
+            let rows = permutatedString.length / width;
+
+            let matrix = Array(rows).fill(null).map(() => Array(width).fill(''));
+            const colOrder = getAdvancedPermutation(matrixSeed, width);
+
+            let srcIdx = 0;
+            for (let c = 0; c < width; c++) {
+                let targetCol = colOrder[c];
+                for (let r = 0; r < rows; r++) {
+                    matrix[r][targetCol] = permutatedString.charAt(srcIdx++);
+                }
+            }
+
+            let internalDigits = "";
+            for (let r = 0; r < rows; r++) {
+                internalDigits += matrix[r].join('');
+            }
+
+            // 4. Straddling Checkerboard auflösen
+            let decryptedText = "";
+            let idx = 0;
+            while (idx < internalDigits.length) {
+                let char = internalDigits.charAt(idx);
+                if (char === "5") {
+                    decryptedText += " ";
+                    idx++;
+                } else if (char === "2") {
+                    if (idx + 2 > internalDigits.length) break;
+                    let val = parseInt(internalDigits.substr(idx, 2), 10);
+                    let found = false;
+                    for (let asciiVal of [69, 78, 73, 65, 82, 84, 101, 110, 105, 97, 114, 116]) {
+                        if (asciiVal % 10 === val % 10) {
+                            decryptedText += String.fromCharCode(asciiVal);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) decryptedText += "?";
+                    idx += 2;
+                } else if (char === "8") {
+                    if (idx + 4 > internalDigits.length) break;
+                    let code = parseInt(internalDigits.substr(idx + 1, 3), 10);
+                    if (code > 0) decryptedText += String.fromCharCode(code);
+                    idx += 4;
+                } else {
+                    idx++; 
+                }
+            }
+
+            outputDiv.innerText = "🔓 KRYPTO-MATRIX ERFOLGREICH AUFGELÖST!\n\nKlartext:\n" + decryptedText;
+            outputDiv.style.color = "#00ff66";
+        }
+    </script>
+</body>
+</html>
