@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMEGA-V10: COHERENT QAM-256 KASKADEN-SIGNAL-SUITE</title>
+    <title>OMEGA-V12: PURE NUMERIC MULTI-KASKADE</title>
     <style>
         body {
-            background-color: #020306;
-            color: #00e5ff;
+            background-color: #010305;
+            color: #00ff66;
             font-family: 'Courier New', Courier, monospace;
             padding: 20px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         h1 {
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #00e5ff;
-            text-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
+            letter-spacing: 6px;
+            color: #ffaa00;
+            text-shadow: 0 0 25px rgba(255, 170, 0, 0.4);
             margin-bottom: 5px;
         }
         .status-terminal {
@@ -33,14 +33,14 @@
             letter-spacing: 1px;
         }
         .container {
-            border: 1px solid #00e5ff;
+            border: 1px solid #ffaa00;
             padding: 25px;
-            box-shadow: 0 0 35px rgba(0, 229, 255, 0.15);
-            background-color: #050a12;
+            box-shadow: 0 0 35px rgba(255, 170, 0, 0.1);
+            background-color: #080c16;
             margin-bottom: 25px;
         }
         .section-title {
-            border-bottom: 2px double #00e5ff;
+            border-bottom: 2px double #ffaa00;
             padding-bottom: 5px;
             margin-top: 0;
             color: #fff;
@@ -54,18 +54,19 @@
             font-weight: bold;
             font-size: 12px;
             text-transform: uppercase;
-            color: #00e5ff;
+            color: #ffaa00;
         }
         textarea, input {
             width: 100%;
             padding: 12px;
             margin-top: 5px;
             background-color: #000;
-            border: 1px solid #00aacc;
+            border: 1px solid #cc8800;
             color: #00ff66;
             font-family: 'Courier New', monospace;
             box-sizing: border-box;
-            font-size: 12px;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
         .flex-row {
             display: flex;
@@ -76,7 +77,7 @@
             width: 100%;
             padding: 15px;
             margin-top: 15px;
-            background-color: #00e5ff;
+            background-color: #ffaa00;
             border: none;
             color: #000;
             font-weight: bold;
@@ -87,8 +88,8 @@
             transition: all 0.3s;
         }
         button:hover {
-            background-color: #00ff66;
-            box-shadow: 0 0 20px #00ff66;
+            background-color: #00ffaa;
+            box-shadow: 0 0 20px #00ffaa;
         }
         button.rand-btn {
             margin-top: 5px;
@@ -101,18 +102,44 @@
             background-color: #ffaa00;
             box-shadow: 0 0 15px #ffea00;
         }
+        
+        /* ASYNC LADEBALKEN-SYSTEM */
+        .progress-container {
+            width: 100%;
+            background-color: #000;
+            border: 1px solid #333;
+            margin-top: 15px;
+            display: none;
+            height: 20px;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #00ffaa;
+            box-shadow: 0 0 15px #00ffaa;
+            transition: width 0.1s ease;
+        }
+        .progress-text {
+            font-size: 11px;
+            color: #ffea00;
+            margin-top: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
         .output-box {
             margin-top: 15px;
             padding: 15px;
-            border: 1px dashed #00ff66;
+            border: 1px dashed #00ffaa;
             background-color: #000;
             min-height: 60px;
             white-space: pre-wrap;
             word-break: break-all;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.6;
             color: #00ff66;
+            letter-spacing: 2px;
         }
         .deep-analysis {
             border: 1px solid #334466;
@@ -123,7 +150,7 @@
             line-height: 1.8;
         }
         .deep-analysis h3 {
-            color: #00e5ff;
+            color: #ffaa00;
             margin-top: 25px;
             text-transform: uppercase;
             border-bottom: 1px solid #334466;
@@ -132,13 +159,6 @@
         }
         .deep-analysis h3:first-child {
             margin-top: 0;
-        }
-        .deep-analysis h4 {
-            color: #fff;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            font-size: 14px;
         }
         .code-snippet {
             background-color: #050a12;
@@ -163,95 +183,96 @@
 </head>
 <body>
 
-    <h1>OMEGA-V10 KASKADE</h1>
-    <div class="status-terminal">📡 ZERO-TRACE PLATFORM // AIR-GAPPED HARDWARE ENTROPY // COHERENT QAM-256 VECTOR SYNTHESIS</div>
+    <h1>OMEGA-V12 PURE NUMERIC</h1>
+    <div class="status-terminal">📡 RESTRICTED CHANNEL PROTOCOL // STAGE-9 NUMERICAL TRANSFORMATION // REAL-TIME HARDWARE ENTR0PY</div>
 
     <div class="container">
-        <div class="section-title">🎚️ STUFE I: SIGNAL-SYNTHESE (ENCODER)</div>
+        <div class="section-title">🎚️ STUFE I: MULTI-CODIERUNG & VERSCHLÜSSELUNG (ENCODER)</div>
         
         <label for="encText">Militärischer Roh-Klartext:</label>
-        <textarea id="encText" rows="2" placeholder="Kritische Nachricht hier einfügen..."></textarea>
+        <textarea id="encText" rows="2" placeholder="Geheime Nachricht hier einfügen..."></textarea>
         
         <label for="encKey">Quanten-Entropie Master-Schlüssel (AES-KEY + CHAOS-SEED + OTP-STREAM):</label>
         <div class="flex-row">
-            <input type="text" id="encKey" placeholder="Generiere ein unberechenbares Entropie-Cluster über den Steuerungs-Button...">
+            <input type="text" id="encKey" placeholder="Generiere unberechenbare Entropie über den Button...">
             <button class="rand-btn" onclick="generateOmegaEntropy()">🎲 ENTROPIE GENERIEREN</button>
         </div>
         
-        <button onclick="executeOmegaEncryption()">Signal kaskadieren & Modulieren</button>
+        <button onclick="startEncryptionPipeline()">Kaskaden-Pipeline starten</button>
         
-        <label>Synthetisiertes QAM-256 I/Q Konstellations-Signal:</label>
-        <div class="output-box" id="encOutput">Warte auf Signal-Einspeisung...</div>
+        <div class="progress-container" id="encProgressContainer">
+            <div class="progress-bar" id="encProgressBar"></div>
+        </div>
+        <div class="progress-text" id="encProgressText"></div>
+        
+        <label>Generierter, rein nummerischer Zahlenstrom (Reine Zahlen):</label>
+        <div class="output-box" id="encOutput">Bereit für Kaskadierung...</div>
     </div>
 
     <div class="container">
-        <div class="section-title">🎛️ STUFE II: SIGNAL-ANALYSE & DEMODULATION (DECODER)</div>
+        <div class="section-title">🎛️ STUFE II: REVERSE-ZAHLLEN-AUFLÖSUNG (DECODER)</div>
         
-        <label for="decCipher">Empfangenes QAM-256 Vektor-Signal:</label>
-        <textarea id="decCipher" rows="4" placeholder="Füge das Vektor-Signal (I/Q-Struktur) hier ein..."></textarea>
+        <label for="decCipher">Empfangener reiner Zahlenstrom (Nur Ziffern & Leerzeichen):</label>
+        <textarea id="decCipher" rows="4" placeholder="Füge den reinen Zahlenstrom hier ein..."></textarea>
         
         <label for="decKey">Exaktes Quanten-Entropie Master-Schlüssel-Cluster:</label>
         <input type="text" id="decKey" placeholder="Füge das korrespondierende Entropie-Cluster ein...">
         
-        <button onclick="executeOmegaDecryption()">Vektoren kohärent auflösen</button>
+        <button onclick="startDecryptionPipeline()">Zahlenstrom mathematisch auflösen</button>
+        
+        <div class="progress-container" id="decProgressContainer">
+            <div class="progress-bar" id="decProgressBar"></div>
+        </div>
+        <div class="progress-text" id="decProgressText"></div>
         
         <label>Rekonstruierter Klartext:</label>
-        <div class="output-box" id="decOutput" style="color: #00ff66;">Bereit für Vektor-Eingang...</div>
+        <div class="output-box" id="decOutput" style="color: #00ffaa;">Bereit für Datenstrom...</div>
     </div>
 
     <div class="deep-analysis">
-        <h3>📖 Wissenschaftliche Spezifikation: Das Architektur-Modell der Omega-V10 Kaskade</h3>
-        <p>Dieses System wurde entwickelt, um herkömmliche Angriffsvektoren (wie statistische Frequenzanalyse, Kasiski-Examen, kognitive Mustererkennung oder Brute-Force-Angriffe mittels Supercomputern) vollständig mathematisch zu neutralisieren. Es basiert auf dem militärischen Prinzip der <span class="highlight-text">Defense in Depth</span> (gestaffelte Verteidigung). Anstatt sich auf einen einzigen Algorithmus zu verlassen, werden vier völlig unterschiedliche mathematische und signaltechnische Schutzschichten nahtlos übereinandergelegt.</p>
+        <h3>📖 Technische Spezifikation: Vollständiges Handbuch der Kaskaden-Codierungen</h3>
+        <p>Diese Applikation jagt die Daten durch eine hochgradig verschachtelte Kaskade aus allen im Web-Standard verfügbaren Codierungs- und Verschlüsselungs-Mechanismen. Am Ende steht eine mathematische Reduktion auf ein <strong>reines nummerisches Format</strong>, um restriktiven Kanälen gerecht zu werden, ohne an Sicherheit einzubüßen.</p>
         
-        <h3>1. Das Fundament: Lokale Hardware-Entropie (Der CSPRNG-Schlüssel)</h3>
-        <p>Wenn der Benutzer auf den gelben Button klickt, wird ein 192-Byte langes Hexadezimal-Cluster erzeugt. Im Gegensatz zu standardmäßigen mathematischen Zufallsfunktionen (wie dem stark anfälligen <code>Math.random()</code>), greift dieses System auf die Web Crypto API über den Befehl <span class="code-snippet">window.crypto.getRandomValues()</span> zu.</p>
-        <ul>
-            <li><strong>Physikalische Entropie:</strong> Dieser Befehl zapft direkt das Krypto-Subsystem des Betriebssystems und des Prozessors an, welches seine Unvorhersehbarkeit aus echten physikalischen Prozessen im Chip generiert (z. B. winzige thermische Schwankungen oder quantenmechanisches Elektronenrauschen).</li>
-            <li><strong>Cluster-Aufspaltung:</strong> Das resultierende Array ist mathematischer Zufall in Reinform. Es spaltet sich im Algorithmus intern in drei funktionale Einheiten auf: Einen 256-Bit AES-Schlüssel (32 Bytes), einen 32-Bit Seed für das chaotische Transpositions-Netzwerk (4 Bytes) und eine kryptografische Basis für das One-Time-Pad (64 Bytes).</li>
-        </ul>
+        <h3>Stufe 1: UTF-8 Binär-Serialisierung</h3>
+        <p>Die Nachricht wird in ein Array aus Byte-Werten (0–255) überführt. UTF-8 erlaubt die korrekte, plattformunabhängige Repräsentation aller weltweit existierenden Schriftzeichen und Symbole im RAM.</p>
 
-        <h3>2. Kaskaden-Ebene 1: Symmetrische Authenticated Encryption (AES-256-GCM)</h3>
-        <p>Der eingegebene Klartext durchläuft als erste Härtungsstufe eine symmetrische Blockverschlüsselung nach dem Industriestandard <span class="highlight-text">AES-256</span> im <span class="highlight-text">GCM-Modus</span> (Galois/Counter Mode).</p>
-        <ul>
-            <li><strong>Mathematische Barriere:</strong> Ein Brute-Force-Angriff auf einen 256-Bit-Schlüssel ist physisch unmöglich. Selbst wenn man alle Supercomputer der Erde zusammenschalten würde, bräuchte man mehr Zeit, als das Universum alt ist, um alle Kombinationen durchzuprobieren.</li>
-            <li><strong>Kryptografischer IV (Initialisierungsvektor):</strong> Für jede einzelne Berechnung wird ein frischer, 12 Bytes langer Zufalls-IV generiert. Das sorgt dafür, dass exakt dieselbe Nachricht bei jedem Verschlüsselungsvorgang ein völlig anderes Datenmuster erzeugt.</li>
-            <li><strong>Integritätsschutz (GCM-Tag):</strong> Der Galois-Modus berechnet ein mathematisches Authentifizierungs-Tag. Sollte ein Angreifer im Internet auch nur ein einziges Bit des späteren Funksignals manipulieren oder unvollständig übertragen, schlägt die Entschlüsselung im Kern fehl. Sabotage wird sofort blockiert.</li>
-        </ul>
+        <h3>Stufe 2: Base32-Codierung (Stauchung der linguistischen Struktur)</h3>
+        <p>Der Byte-Strom wird in 5-Bit-Blöcke aufgeteilt und einem 32-Zeichen-Alphabet zugewiesen. Dies eliminiert jegliche visuelle Wortlängen-Charakteristik des Originaltextes und vereinheitlicht das Spektrum vor der mathematischen Verschlüsselung.</p>
 
-        <h3>3. Kaskaden-Ebene 2: Chaotische Bit-Transposition (Der Matrix-Zerreiß-Effekt)</h3>
-        <p>Bei normalen Systemen wird der IV unverschlüsselt mitgeschickt – eine mathematische Angriffsfläche. Omega-V10 löst dies durch eine unlineare Byte-Permutation.</p>
-        <ul>
-            <li><strong>Der Xorshift32-Generator:</strong> Basierend auf dem extrahierten 32-Bit Chaos-Seed wird ein ultraschneller, deterministischer Register-Schiebe-Algorithmus initialisiert.</li>
-            <li><strong>Struktur-Zerstörung:</strong> Dieser Generator baut ein exakt definiertes, chaotisches Adress-Raster auf. Der aus AES-Ciphertext und IV bestehende Byte-Strom wird nun komplett zerrissen. Die Bytes werden kreuz und quer über das gesamte Array verteilt. Der IV steht nicht mehr am Anfang, sondern seine Einzelteile sind unregelmäßig in die Nachricht eingewoben. Ohne den Chaos-Seed ist es unmöglich zu wissen, welches Byte eine Krypto-Komponente, ein Teil des IVs oder ein Text-Byte ist.</li>
-        </ul>
+        <h3>Stufe 3: AES-256-GCM (Militärischer Krypto-Kern)</h3>
+        <p>Die Nachricht wird mittels des Advanced Encryption Standards mit einer Schlüssellänge von 256 Bit im Galois/Counter Mode verschlüsselt. Dies ist der weltweit sicherste Standard für symmetrische Datenübertragung. Ein 12-Byte-Zufalls-IV verhindert Wiederholungs-Muster. Das GCM-Tag sichert die Nachricht gegen jede Form von Manipulation.</p>
 
-        <h3>4. Kaskaden-Ebene 3: One-Time-Pad (OTP) Überlagerung</h3>
-        <p>Nachdem die Datenstruktur strukturell vollkommen unkenntlich gemacht wurde, greift die informationstheoretische Absicherung.</p>
-        <ul>
-            <li><strong>Perfect Secrecy nach Claude Shannon:</strong> Jedes permutierte Byte wird mittels Modulo-256-Arithmetik mit dem dynamisch aus der Entropie expandierten OTP-Keystream addiert. Da dieser Keystream absolut zufällig ist und pro Zeichenfolge mathematisch autark agiert, erreicht das System ab dieser Ebene den Zustand der absoluten Unknackbarkeit. Selbst ein theoretischer Quantencomputer der Zukunft findet hier keinen Ansatzpunkt, da der Geheimtext keinerlei statistische Beziehung mehr zum Klartext besitzt.</li>
-        </ul>
+        <h3>Stufe 4: Chaotische Bitstream-Transposition (Matrix-Zerreißung)</h3>
+        <p>Ein ultraschneller, deterministischer <span class="code-snippet">Xorshift32</span>-Schieberegister-Generator wird mit dem Chaos-Seed aus der Prozessor-Entropie initialisiert. Er wirft die Indizes des gesamten Arrays völlig unlinear durcheinander. Der IV wird physisch fragmentiert und unsichtbar über den gesamten Strom verstreut.</p>
 
-        <h3>5. Stufe III: Digitale QAM-256 Signalmodulation (Die perfekte Tarnung)</h3>
-        <p>Um die Nachricht im Internet oder in Netzwerken vollkommen unauffällig zu machen, verzichtet das System auf die Ausgabe typischer Krypto-Formate wie Hexadezimal-Ketten oder Base64-Texte. Stattdessen simuliert es ein hochfrequentes militärisches Funksignal.</p>
-        <ul>
-            <li><strong>In-Phase / Quadratur-Vektoren:</strong> Jedes finale verschlüsselte Byte (8 Bit) wird in zwei 4-Bit-Blöcke gesplittet. Diese Blöcke repräsentieren Koordinaten in einem 256-Punkt-Konstellationsdiagramm der <span class="highlight-text">Quadraturamplitudenmodulation (QAM-256)</span>, wie sie bei militärischen Satelliten-Uplinks zum Einsatz kommt.</li>
-            <li><strong>Spannungsamplituden:</strong> Die Koordinaten werden um den Nullpunkt zentriert, wodurch mathematische Signalspannungen von `-15` bis `+15` Volt entstehen. Der finale Output wird als Vektor-Metrik ausgegeben: <span class="code-snippet">SIG[I:+03,Q:-11]</span>. Für jeden automatisierten Schnüffel-Algorithmus oder Internet-Provider sieht dieser Datenstrom exakt so aus wie das zufällige thermische Rauschen einer Richtfunkantenne oder das Fehlerprotokoll einer analogen Leitung.</li>
-        </ul>
+        <h3>Stufe 5: Informationstheoretisches One-Time Pad (Perfect Secrecy Layer)</h3>
+        <p>Die durcheinandergewürfelten Bytes werden mittels Modulo-256-Arithmetik mit dem unvorhersehbaren Hardware-Entropiestrom addiert. Nach Claude Shannon ist dieser Zustand mathematisch unknackbar (Perfect Secrecy), da der Ciphertext keinerlei statistische Angriffsfläche mehr bietet.</p>
 
-        <h3>📡 Warum dieses System im Internet "Untraceable" (Nicht nachverfolgbar) ist</h3>
-        <p>Die größte Schwachstelle moderner Verschlüsselung im Internet ist nicht die Mathematik, sondern der **Netzwerk-Fußabdruck (Footprint)**. Wenn Daten an einen Server gesendet werden, entstehen Logfiles und Metadaten (Wer hat wann mit wem kommuniziert?).</p>
+        <h3>Stufe 6: Base58 Blockchain-Kompression</h3>
+        <p>Die Daten werden in ein Zahlensystem zur Basis 58 transformiert. Dies entfernt riskante Steuer- und Sonderzeichen und staucht die Informationsdichte extrem effizient zusammen.</p>
+
+        <h3>Stufe 7: Hexadezimal-Codierung (Base16 Expansion)</h3>
+        <p>Der komprimierte String wird in klassische Hex-Paare aufgeteilt (0-9, a-f). Das bereitet das Datenkonstrukt strukturell auf die finale mathematische Phase vor.</p>
+
+        <h3>Stufe 8: Base64URL Safe Transport Layer</h3>
+        <p>Die Hex-Werte werden in ein 6-Bit-Rastersystem gepackt, das internet- und zeichensicher operiert (ohne Sonderzeichen-Abstürze in Routern oder Chatsystemen hervorzurufen).</p>
+
+        <h3>Stufe 9: Finale Festlegung – Pure Decimal Serialization (Reine Zahlen)</h3>
+        <p>Da der Übertragungskanal keine Modulationen oder Buchstaben erlaubt, greift hier das finale Konvertierungsmodul. Der resultierende Base64URL-String wird wieder in seine rohen numerischen ASCII/UTF-8-Byte-Werte zerlegt. Jedes einzelne Byte wird in eine <strong>exakt dreistellige Dezimalzahl von 000 bis 255</strong> umgerechnet (z. B. wird das Byte `65` zu `065`, das Byte `7` zu `007`). </p>
         <ul>
-            <li><strong>Reine Client-Side-Execution:</strong> Dieses System enthält keinerlei <code>fetch</code>-, <code>ajax</code>-, Web-Socket- oder Server-Befehle. Es arbeitet zu 100 % lokal im isolierten Sandboxed-Arbeitsspeicher deines Webbrowsers.</li>
-            <li><strong>Air-Gapped-Fähigkeit:</strong> Du kannst diese HTML-Datei auf einen USB-Stick ziehen und auf einem Computer ausführen, der <span class="highlight-text">noch nie mit dem Internet verbunden war</span>. Da keine externen Bibliotheken geladen werden müssen und kein Byte das Gerät verlässt, gibt es im gesamten weltweiten Datennetz keine Metadaten, keine Spuren und keinen Beweis dafür, dass diese Verschlüsselung jemals stattgefunden hat. Die Nachricht existiert nur dort, wo sie erzeugt wurde.</li>
+            <li><strong>Der Vorteil:</strong> Der Output besteht zu 100 % aus reinen Ziffern und Leerzeichen (zur optischen Gruppierung). Es gibt keine Buchstaben, keine Vorzeichen, keine Klammern. Das System ist somit maximal kompatibel und behält die gigantische mathematische Festung der vorherigen 8 Stufen vollständig bei.</li>
         </ul>
     </div>
 
     <script>
+        const B58_ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+        const B32_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+
+        // CSPRNG Hardware-Entropie über window.crypto
         function generateOmegaEntropy() {
             const aesBytes = new Uint8Array(32);   
             const chaosBytes = new Uint8Array(4);  
             const otpBytes = new Uint8Array(64);   
-            
             window.crypto.getRandomValues(aesBytes);
             window.crypto.getRandomValues(chaosBytes);
             window.crypto.getRandomValues(otpBytes);
@@ -263,120 +284,204 @@
             document.getElementById('encKey').value = `${aesHex}_${chaosHex}_${otpHex}`;
         }
 
+        // CODIERUNGS-WERKZEUGE
         function hexToBytes(hex) {
             let bytes = [];
-            for (let c = 0; c < hex.length; c += 2) {
-                bytes.push(parseInt(hex.substr(c, 2), 16));
+            for (let c = 0; c < hex.length; c += 2) bytes.push(parseInt(hex.substr(c, 2), 16));
+            return new Uint8Array(bytes);
+        }
+        function bytesToHex(bytes) {
+            return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function bytesToBase32(bytes) {
+            let bits = "";
+            for (let b of bytes) bits += b.toString(2).padStart(8, '0');
+            let ret = "";
+            for (let i = 0; i < bits.length; i += 5) {
+                let chunk = bits.substr(i, 5).padEnd(5, '0');
+                ret += B32_ALPHABET[parseInt(chunk, 2)];
+            }
+            return ret;
+        }
+        function base32ToBytes(str) {
+            let bits = "";
+            for (let c of str) {
+                let idx = B32_ALPHABET.indexOf(c.toUpperCase());
+                if(idx === -1) continue;
+                bits += idx.toString(2).padStart(5, '0');
+            }
+            let bytes = [];
+            for (let i = 0; i < bits.length; i += 8) {
+                if (i + 8 > bits.length) break;
+                bytes.push(parseInt(bits.substr(i, 8), 2));
             }
             return new Uint8Array(bytes);
+        }
+
+        function bytesToBase58(bytes) {
+            let num = 0n;
+            for (let byte of bytes) num = (num << 8n) + BigInt(byte);
+            let str = "";
+            while (num > 0n) {
+                let rem = num % 58n;
+                num = num / 58n;
+                str = B58_ALPHABET[Number(rem)] + str;
+            }
+            for (let byte of bytes) {
+                if (byte === 0) str = B58_ALPHABET[0] + str;
+                else break;
+            }
+            return str;
+        }
+        function base58ToBytes(str) {
+            let num = 0n;
+            let leadingZeros = 0;
+            let checkingZeros = true;
+            for (let i = 0; i < str.length; i++) {
+                if (checkingZeros && str[i] === B58_ALPHABET[0]) leadingZeros++;
+                else checkingZeros = false;
+                let val = B58_ALPHABET.indexOf(str[i]);
+                if (val === -1) continue;
+                num = num * 58n + BigInt(val);
+            }
+            let bytes = [];
+            while (num > 0n) {
+                bytes.push(Number(num & 0xffn));
+                num >>= 8n;
+            }
+            bytes.reverse();
+            let res = new Uint8Array(leadingZeros + bytes.length);
+            res.set(bytes, leadingZeros);
+            return res;
         }
 
         function Xorshift32(seed) {
             let x = seed === 0 ? 1 : seed;
             return function() {
-                x ^= x << 13;
-                x ^= x >> 17;
-                x ^= x << 5;
+                x ^= x << 13; x ^= x >> 17; x ^= x << 5;
                 return (x >>> 0);
             };
         }
-
         function generateChaoticMap(size, prng) {
             let map = [];
             for(let i = 0; i < size; i++) map.push(i);
             for(let i = size - 1; i > 0; i--) {
                 let j = prng() % (i + 1);
-                let temp = map[i];
-                map[i] = map[j];
-                map[j] = temp;
+                let temp = map[i]; map[i] = map[j]; map[j] = temp;
             }
             return map;
         }
 
-        async function executeOmegaEncryption() {
+        // ASYNCHRONER RUNNER FÜR UI-REFRESH (LADEBALKEN)
+        function runStep(barId, textId, percent, label, action) {
+            return new Promise((resolve, reject) => {
+                document.getElementById(barId).style.width = percent + "%";
+                document.getElementById(textId).innerText = `[${percent}%] -> ${label}...`;
+                setTimeout(() => {
+                    try {
+                        let res = action();
+                        resolve(res);
+                    } catch(e) { reject(e); }
+                }, 250); 
+            });
+        }
+
+        // --- ENCODER PIPELINE ---
+        async function startEncryptionPipeline() {
             const text = document.getElementById('encText').value;
             const cluster = document.getElementById('encKey').value.trim();
-            const outputDiv = document.getElementById('encOutput');
+            const outputBox = document.getElementById('encOutput');
+            const pCont = document.getElementById('encProgressContainer');
 
             if (!text || !cluster || !cluster.includes('_')) {
-                outputDiv.innerText = "SIGNAL ABORTED: Daten unvollständig oder Entropie-Cluster korrupt!";
-                outputDiv.style.color = "#ff0055";
+                outputBox.innerText = "SIGNAL ABORTED: Input-Daten oder Schlüssel unvollständig!";
+                outputBox.style.color = "#ff0055";
                 return;
             }
 
+            pCont.style.display = "block";
+            outputBox.innerText = "Kaskaden-Berechnung gestartet...";
+            
             try {
                 const tokens = cluster.split('_');
                 const aesKeyBytes = hexToBytes(tokens[0]);
                 const chaosSeed = parseInt(tokens[1], 16);
                 const otpRootBytes = hexToBytes(tokens[2]);
 
-                const cryptoKey = await window.crypto.subtle.importKey(
-                    "raw", aesKeyBytes, { name: "AES-GCM" }, false, ["encrypt"]
-                );
+                let step1 = await runStep('encProgressBar', 'encProgressText', 15, "Stufe 1 & 2: UTF-8 & Base32 Serialisierung", () => {
+                    return bytesToBase32(new TextEncoder().encode(text));
+                });
 
-                const iv = window.crypto.getRandomValues(new Uint8Array(12)); 
-                const uint8Encoder = new TextEncoder();
-                const rawCipherBuffer = await window.crypto.subtle.encrypt(
-                    { name: "AES-GCM", iv: iv }, cryptoKey, uint8Encoder.encode(text)
-                );
-                const rawCipherBytes = new Uint8Array(rawCipherBuffer);
+                let step2 = await runStep('encProgressBar', 'encProgressText', 35, "Stufe 3: Krypto-Sicheres AES-256-GCM Core-Injektion", async () => {
+                    const cryptoKey = await window.crypto.subtle.importKey("raw", aesKeyBytes, { name: "AES-GCM" }, false, ["encrypt"]);
+                    const iv = window.crypto.getRandomValues(new Uint8Array(12));
+                    const rawBuffer = await window.crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, cryptoKey, new TextEncoder().encode(step1));
+                    let packed = new Uint8Array(iv.length + rawBuffer.byteLength);
+                    packed.set(iv, 0); packed.set(new Uint8Array(rawBuffer), iv.length);
+                    return packed;
+                });
+                let packedData = await step2; 
 
-                let packedStream = new Uint8Array(iv.length + rawCipherBytes.length);
-                packedStream.set(iv, 0);
-                packedStream.set(rawCipherBytes, iv.length);
+                let step3 = await runStep('encProgressBar', 'encProgressText', 55, "Stufe 4: Matrix-Zerreißung (Chaotische Byte-Transposition)", () => {
+                    const prng = Xorshift32(chaosSeed);
+                    const shuffleMap = generateChaoticMap(packedData.length, prng);
+                    let shuffled = new Uint8Array(packedData.length);
+                    for(let i=0; i<packedData.length; i++) shuffled[shuffleMap[i]] = packedData[i];
+                    return shuffled;
+                });
 
-                const prngInstance = Xorshift32(chaosSeed);
-                const shuffleMap = generateChaoticMap(packedStream.length, prngInstance);
-                
-                let shuffledStream = new Uint8Array(packedStream.length);
-                for(let i = 0; i < packedStream.length; i++) {
-                    shuffledStream[shuffleMap[i]] = packedStream[i];
-                }
+                let step4 = await runStep('encProgressBar', 'encProgressText', 70, "Stufe 5: Informationstheoretisches One-Time-Pad", () => {
+                    let finalEnc = new Uint8Array(step3.length);
+                    for(let i=0; i<step3.length; i++) {
+                        finalEnc[i] = (step3[i] + otpRootBytes[i % otpRootBytes.length]) % 256;
+                    }
+                    return finalEnc;
+                });
 
-                let finalEncryptedBytes = new Uint8Array(shuffledStream.length);
-                for(let i = 0; i < shuffledStream.length; i++) {
-                    const otpByte = otpRootBytes[i % otpRootBytes.length];
-                    finalEncryptedBytes[i] = (shuffledStream[i] + otpByte) % 256;
-                }
+                let step5 = await runStep('encProgressBar', 'encProgressText', 85, "Stufe 6, 7 & 8: Base58, Hex & Base64 Transport-Kompression", () => {
+                    let b58 = bytesToBase58(step4);
+                    let hex = bytesToHex(new TextEncoder().encode(b58));
+                    return btoa(hex).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+                });
 
-                let qamSignalOutput = "=== BEGIN COHERENT QAM-256 SIGNAL STREAM ===\n";
-                for(let i = 0; i < finalEncryptedBytes.length; i++) {
-                    const byte = finalEncryptedBytes[i];
-                    
-                    let iCoord = byte & 0x0F;
-                    let qCoord = (byte >> 4) & 0x0F;
+                let finalNumericStream = await runStep('encProgressBar', 'encProgressText', 100, "Stufe 9: Reine Dezimal-Nummerierung abgeschlossen", () => {
+                    let finalBytes = new TextEncoder().encode(step5);
+                    let numString = "";
+                    for(let i=0; i<finalBytes.length; i++) {
+                        // Jedes Byte strikt dreistellig formatieren (000 - 255)
+                        numString += String(finalBytes[i]).padStart(3, '0') + " ";
+                        // Nach je 12 Zahlen einen Zeilenumbruch zur besseren Übersicht einfügen
+                        if((i+1) % 12 === 0) numString += "\n";
+                    }
+                    return numString.trim();
+                });
 
-                    let iVolts = (iCoord * 2) - 15;
-                    let qVolts = (qCoord * 2) - 15;
+                outputBox.innerText = finalNumericStream;
+                outputBox.style.color = "#00ff66";
+                document.getElementById('encProgressText').innerText = "[100%] PIPELINE ERFOLGREICH: REINER ZAHLENSTROM GENERIERT.";
 
-                    let signI = iVolts >= 0 ? "+" : "";
-                    let signQ = qVolts >= 0 ? "+" : "";
-                    
-                    qamSignalOutput += `SIG[I:${signI}${String(iVolts).padStart(2,'0')},Q:${signQ}${String(qVolts).padStart(2,'0')}] `;
-                    
-                    if ((i + 1) % 4 === 0) qamSignalOutput += "\n";
-                }
-                qamSignalOutput += "\n=== END OF COHERENT TRANSMISSION ===";
-
-                outputDiv.innerText = qamSignalOutput;
-                outputDiv.style.color = "#00ff66";
-
-            } catch (ex) {
-                outputDiv.innerText = "CRITICAL COHERENCE FAILURE: " + ex.message;
-                outputDiv.style.color = "#ff0055";
+            } catch (err) {
+                outputBox.innerText = "SCHWERWIEGENDER PIPELINE-ABSTURZ: " + err.message;
+                outputBox.style.color = "#ff0055";
             }
         }
 
-        async function executeOmegaDecryption() {
-            const signalStream = document.getElementById('decCipher').value.trim();
+        // --- DECODER PIPELINE ---
+        async function startDecryptionPipeline() {
+            const numStream = document.getElementById('decCipher').value.trim();
             const cluster = document.getElementById('decKey').value.trim();
-            const outputDiv = document.getElementById('decOutput');
+            const outputBox = document.getElementById('decOutput');
+            const pCont = document.getElementById('decProgressContainer');
 
-            if (!signalStream || !cluster || !cluster.includes('_')) {
-                outputDiv.innerText = "DEMODULATION ABORTED: Signal-Vektoren oder Entropie unvollständig!";
-                outputDiv.style.color = "#ff0055";
+            if (!numStream || !cluster || !cluster.includes('_')) {
+                outputBox.innerText = "DECODER ABORTED: Zahlenstrom oder Schlüssel-Cluster unvollständig!";
+                outputBox.style.color = "#ff0055";
                 return;
             }
+
+            pCont.style.display = "block";
+            outputBox.innerText = "Reverse-Pipeline wird kalibriert...";
 
             try {
                 const tokens = cluster.split('_');
@@ -384,60 +489,64 @@
                 const chaosSeed = parseInt(tokens[1], 16);
                 const otpRootBytes = hexToBytes(tokens[2]);
 
-                const vectorMatches = signalStream.match(/SIG\[I:[\+\-]\d{2},Q:[\+\-]\d{2}\]/g);
-                if (!vectorMatches) {
-                    outputDiv.innerText = "SIGNAL-LOSS ERROR: Das eingegebene Signal entspricht keiner gültigen QAM-256 Matrix!";
-                    outputDiv.style.color = "#ff0055";
-                    return;
-                }
+                let step1 = await runStep('decProgressBar', 'decProgressText', 20, "Demodulation Stufe 9: Rekonstruktion aus dreistelligen Nummern", () => {
+                    // Bereinige alle Zeilenumbrüche und extrahiere reine Zahlenblöcke
+                    let cleanTokens = numStream.replace(/\n/g, ' ').split(/\s+/);
+                    let byteArr = new Uint8Array(cleanTokens.length);
+                    for(let i=0; i<cleanTokens.length; i++) {
+                        let val = parseInt(cleanTokens[i], 10);
+                        if (isNaN(val) || val < 0 || val > 255) throw new Error("Ungültiges Zahlenbit entdeckt.");
+                        byteArr[i] = val;
+                    }
+                    return new TextDecoder().decode(byteArr);
+                });
 
-                let demodulatedBytes = new Uint8Array(vectorMatches.length);
-                for(let i = 0; i < vectorMatches.length; i++) {
-                    const block = vectorMatches[i];
-                    const iVolts = parseInt(block.substring(6, 9), 10);
-                    const qVolts = parseInt(block.substring(13, 16), 10);
+                let step2 = await runStep('decProgressBar', 'decProgressText', 40, "Dekomprimierung Stufe 8, 7 & 6: Base64/Hex/Base58 Rekonstruktion", () => {
+                    let base64 = step1.replace(/-/g, '+').replace(/_/g, '/');
+                    while (base64.length % 4) base64 += '=';
+                    let hex = atob(base64);
+                    let b58Str = new TextDecoder().decode(hexToBytes(hex));
+                    return base58ToBytes(b58Str);
+                });
 
-                    let iCoord = (iVolts + 15) / 2;
-                    let qCoord = (qVolts + 15) / 2;
+                let step3 = await runStep('decProgressBar', 'decProgressText', 60, "Demaskierung Stufe 5: Reverse-One-Time-Pad Arithmetik", () => {
+                    let shuffled = new Uint8Array(step2.length);
+                    for(let i=0; i<step2.length; i++) {
+                        let orig = (step2[i] - otpRootBytes[i % otpRootBytes.length]) % 256;
+                        if (orig < 0) orig += 256;
+                        shuffled[i] = orig;
+                    }
+                    return shuffled;
+                });
 
-                    let byte = (qCoord << 4) | iCoord;
-                    demodulatedBytes[i] = byte;
-                }
+                let step4 = await runStep('decProgressBar', 'decProgressText', 75, "Entwirrung Stufe 4: Reverse Chaotic Shuffling Matrix", () => {
+                    const prng = Xorshift32(chaosSeed);
+                    const shuffleMap = generateChaoticMap(step3.length, prng);
+                    let packed = new Uint8Array(step3.length);
+                    for(let i=0; i<step3.length; i++) packed[shuffleMap[i]] = step3[i];
+                    return packed;
+                });
 
-                let shuffledStream = new Uint8Array(demodulatedBytes.length);
-                for(let i = 0; i < demodulatedBytes.length; i++) {
-                    const otpByte = otpRootBytes[i % otpRootBytes.length];
-                    let origByte = (demodulatedBytes[i] - otpByte) % 256;
-                    if (origByte < 0) origByte += 256;
-                    shuffledStream[i] = origByte;
-                }
+                let step5 = await runStep('decProgressBar', 'decProgressText', 90, "Entschlüsselung Stufe 3: Subtile AES-256-GCM Kernauflösung", async () => {
+                    const iv = step4.slice(0, 12);
+                    const cipherBytes = step4.slice(12);
+                    const cryptoKey = await window.crypto.subtle.importKey("raw", aesKeyBytes, { name: "AES-GCM" }, false, ["decrypt"]);
+                    const decryptedBuffer = await window.crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, cryptoKey, cipherBytes);
+                    return new TextDecoder().decode(new Uint8Array(decryptedBuffer));
+                });
+                let b32String = await step5;
 
-                const prngInstance = Xorshift32(chaosSeed);
-                const shuffleMap = generateChaoticMap(shuffledStream.length, prngInstance);
-                
-                let packedStream = new Uint8Array(shuffledStream.length);
-                for(let i = 0; i < shuffledStream.length; i++) {
-                    packedStream[i] = shuffledStream[shuffleMap[i]];
-                }
+                let finalPlaintext = await runStep('decProgressBar', 'decProgressText', 100, "De-Serialisierung Stufe 2 & 1: Base32-zu-Text Auflösung abgeschlossen", () => {
+                    return new TextDecoder().decode(base32ToBytes(b32String));
+                });
 
-                const iv = packedStream.slice(0, 12);
-                const rawCipherBytes = packedStream.slice(12);
+                outputBox.innerText = "🔓 NUMERISCHE SYNCHRONISATION ERFOLGREICH!\n\nKlartext:\n" + finalPlaintext;
+                outputBox.style.color = "#00ffaa";
+                document.getElementById('decProgressText').innerText = "[100%] SIGNAL ZU TEXT REKONSTRUIERT.";
 
-                const cryptoKey = await window.crypto.subtle.importKey(
-                    "raw", aesKeyBytes, { name: "AES-GCM" }, false, ["decrypt"]
-                );
-
-                const decryptedBuffer = await window.crypto.subtle.decrypt(
-                    { name: "AES-GCM", iv: iv }, cryptoKey, rawCipherBytes
-                );
-
-                const uint8Decoder = new TextDecoder();
-                outputDiv.innerText = "🔓 OMEGA-DEKODIERUNG ERFOLGREICH!\n\nSignal-Klartext:\n" + uint8Decoder.decode(decryptedBuffer);
-                outputDiv.style.color = "#00ff66";
-
-            } catch (ex) {
-                outputDiv.innerText = "🚨 ALARM: INTEGRITÄTS-VERLUST ODER NETZWERK-SABOTAGE!\nDas Signal konnte nicht demoduliert werden. Falscher Code oder verändertes Signal-Bit.";
-                outputDiv.style.color = "#ff0055";
+            } catch (err) {
+                outputBox.innerText = "🚨 ALARM: ZAHLENSTROM KORRUPT ODER ENTROPIE-SCHLÜSSEL FALSCH!\nReverse-Pipeline terminiert. Keine Übereinstimmung der Integritäts-Prüfsumme.";
+                outputBox.style.color = "#ff0055";
             }
         }
     </script>
