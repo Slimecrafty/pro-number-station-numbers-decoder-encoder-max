@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMEGA-V12: PURE NUMERIC MULTI-KASKADE</title>
+    <title>OMEGA-V13: COMPACT NUMERIC CRYPTO-SUITE</title>
     <style>
         body {
             background-color: #010305;
-            color: #00ff66;
+            color: #00ffaa;
             font-family: 'Courier New', Courier, monospace;
             padding: 20px;
             max-width: 1100px;
@@ -62,7 +62,7 @@
             margin-top: 5px;
             background-color: #000;
             border: 1px solid #cc8800;
-            color: #00ff66;
+            color: #00ffaa;
             font-family: 'Courier New', monospace;
             box-sizing: border-box;
             font-size: 13px;
@@ -138,7 +138,7 @@
             font-weight: bold;
             font-size: 14px;
             line-height: 1.6;
-            color: #00ff66;
+            color: #00ffaa;
             letter-spacing: 2px;
         }
         .deep-analysis {
@@ -168,33 +168,26 @@
             font-family: monospace;
             font-size: 12px;
         }
-        ul {
-            padding-left: 20px;
-            margin-top: 5px;
-        }
-        li {
-            margin-bottom: 5px;
-        }
         .highlight-text {
-            color: #00ff66;
+            color: #00ffaa;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <h1>OMEGA-V12 PURE NUMERIC</h1>
-    <div class="status-terminal">📡 RESTRICTED CHANNEL PROTOCOL // STAGE-9 NUMERICAL TRANSFORMATION // REAL-TIME HARDWARE ENTR0PY</div>
+    <h1>OMEGA-V13 PURE NUMERIC</h1>
+    <div class="status-terminal">📡 OPTIMIZED COMPACT MATRIX // STREAMLINED MULTI-LAYER // CRYPTO UNIT</div>
 
     <div class="container">
-        <div class="section-title">🎚️ STUFE I: MULTI-CODIERUNG & VERSCHLÜSSELUNG (ENCODER)</div>
+        <div class="section-title">🎚️ STUFE I: CODIERUNG & VERSCHLÜSSELUNG (ENCODER)</div>
         
-        <label for="encText">Militärischer Roh-Klartext:</label>
-        <textarea id="encText" rows="2" placeholder="Geheime Nachricht hier einfügen..."></textarea>
+        <label for="encText">Klartext:</label>
+        <textarea id="encText" rows="2" placeholder="Nachricht hier einfügen..."></textarea>
         
-        <label for="encKey">Quanten-Entropie Master-Schlüssel (AES-KEY + CHAOS-SEED + OTP-STREAM):</label>
+        <label for="encKey">Entropie Master-Schlüssel:</label>
         <div class="flex-row">
-            <input type="text" id="encKey" placeholder="Generiere unberechenbare Entropie über den Button...">
+            <input type="text" id="encKey" placeholder="Generiere ein unberechenbares Entropie-Cluster...">
             <button class="rand-btn" onclick="generateOmegaEntropy()">🎲 ENTROPIE GENERIEREN</button>
         </div>
         
@@ -205,20 +198,20 @@
         </div>
         <div class="progress-text" id="encProgressText"></div>
         
-        <label>Generierter, rein nummerischer Zahlenstrom (Reine Zahlen):</label>
+        <label>Generierter, rein nummerischer Zahlenstrom (Kompakt):</label>
         <div class="output-box" id="encOutput">Bereit für Kaskadierung...</div>
     </div>
 
     <div class="container">
-        <div class="section-title">🎛️ STUFE II: REVERSE-ZAHLLEN-AUFLÖSUNG (DECODER)</div>
+        <div class="section-title">🎛️ STUFE II: REVERSE-ZAHLEN-AUFLÖSUNG (DECODER)</div>
         
-        <label for="decCipher">Empfangener reiner Zahlenstrom (Nur Ziffern & Leerzeichen):</label>
+        <label for="decCipher">Empfangener Zahlenstrom (Nur Ziffern & Leerzeichen):</label>
         <textarea id="decCipher" rows="4" placeholder="Füge den reinen Zahlenstrom hier ein..."></textarea>
         
-        <label for="decKey">Exaktes Quanten-Entropie Master-Schlüssel-Cluster:</label>
+        <label for="decKey">Exaktes Entropie Master-Schlüssel-Cluster:</label>
         <input type="text" id="decKey" placeholder="Füge das korrespondierende Entropie-Cluster ein...">
         
-        <button onclick="startDecryptionPipeline()">Zahlenstrom mathematisch auflösen</button>
+        <button onclick="startDecryptionPipeline()">Zahlenstrom auflösen</button>
         
         <div class="progress-container" id="decProgressContainer">
             <div class="progress-bar" id="decProgressBar"></div>
@@ -230,45 +223,26 @@
     </div>
 
     <div class="deep-analysis">
-        <h3>📖 Technische Spezifikation: Vollständiges Handbuch der Kaskaden-Codierungen</h3>
-        <p>Diese Applikation jagt die Daten durch eine hochgradig verschachtelte Kaskade aus allen im Web-Standard verfügbaren Codierungs- und Verschlüsselungs-Mechanismen. Am Ende steht eine mathematische Reduktion auf ein <strong>reines nummerisches Format</strong>, um restriktiven Kanälen gerecht zu werden, ohne an Sicherheit einzubüßen.</p>
+        <h3><h3>📖 Handbuch der optimierten Binärkaskade</h3>
+        <p>Um die extreme Datenaufblähung zu verhindern, arbeitet diese Version mit einer hocheffizienten, rein bytebasierten Pipeline. Es werden keine Zwischenschritte in Textform erzwungen, was Rechenfehler ausschließt und die Zahlendichte drastisch minimiert.</p>
         
         <h3>Stufe 1: UTF-8 Binär-Serialisierung</h3>
-        <p>Die Nachricht wird in ein Array aus Byte-Werten (0–255) überführt. UTF-8 erlaubt die korrekte, plattformunabhängige Repräsentation aller weltweit existierenden Schriftzeichen und Symbole im RAM.</p>
+        <p>Der Klartext wird direkt im Arbeitsspeicher in seine rohen Byte-Werte (0–255) zerlegt. Dies bildet das Fundament für alle mathematischen Operationen.</p>
 
-        <h3>Stufe 2: Base32-Codierung (Stauchung der linguistischen Struktur)</h3>
-        <p>Der Byte-Strom wird in 5-Bit-Blöcke aufgeteilt und einem 32-Zeichen-Alphabet zugewiesen. Dies eliminiert jegliche visuelle Wortlängen-Charakteristik des Originaltextes und vereinheitlicht das Spektrum vor der mathematischen Verschlüsselung.</p>
+        <h3>Stufe 2: AES-256-GCM (Krypto-Kern)</h3>
+        <p>Die Bytes werden verschlüsselt. AES-256 im Galois/Counter Mode fügt einen 12-Byte-Initialisierungsvektor (für Unvorhersehbarkeit) und ein 16-Byte-Integritäts-Tag (gegen Sabotage) hinzu. Diese 28 Bytes Overhead sind weltweit behördlicher Sicherheitsstandard und physikalisch notwendig, um die Nachricht unknackbar zu machen.</p>
 
-        <h3>Stufe 3: AES-256-GCM (Militärischer Krypto-Kern)</h3>
-        <p>Die Nachricht wird mittels des Advanced Encryption Standards mit einer Schlüssellänge von 256 Bit im Galois/Counter Mode verschlüsselt. Dies ist der weltweit sicherste Standard für symmetrische Datenübertragung. Ein 12-Byte-Zufalls-IV verhindert Wiederholungs-Muster. Das GCM-Tag sichert die Nachricht gegen jede Form von Manipulation.</p>
+        <h3>Stufe 3: Chaotische Matrix-Transposition (Schreddern)</h3>
+        <p>Ein mathematischer <span class="code-snippet">Xorshift32</span>-Algorithmus nutzt den Chaos-Seed aus dem Schlüssel, um die Indizes des Arrays unlinear zu verwürfeln. Der IV und das Krypto-Tag stehen nicht mehr lesbar am Rand, sondern sind atomar in die Nachricht eingewoben.</p>
 
-        <h3>Stufe 4: Chaotische Bitstream-Transposition (Matrix-Zerreißung)</h3>
-        <p>Ein ultraschneller, deterministischer <span class="code-snippet">Xorshift32</span>-Schieberegister-Generator wird mit dem Chaos-Seed aus der Prozessor-Entropie initialisiert. Er wirft die Indizes des gesamten Arrays völlig unlinear durcheinander. Der IV wird physisch fragmentiert und unsichtbar über den gesamten Strom verstreut.</p>
+        <h3>Stufe 4: Informationstheoretisches One-Time Pad (OTP)</h3>
+        <p>Die verschredderte Byte-Matrix wird mittels modularer Arithmetik mit dem Hardware-Entropiestrom addiert. Dies erzielt den Zustand der mathematisch bewiesenen, absoluten Unknackbarkeit (Perfect Secrecy nach Claude Shannon).</p>
 
-        <h3>Stufe 5: Informationstheoretisches One-Time Pad (Perfect Secrecy Layer)</h3>
-        <p>Die durcheinandergewürfelten Bytes werden mittels Modulo-256-Arithmetik mit dem unvorhersehbaren Hardware-Entropiestrom addiert. Nach Claude Shannon ist dieser Zustand mathematisch unknackbar (Perfect Secrecy), da der Ciphertext keinerlei statistische Angriffsfläche mehr bietet.</p>
-
-        <h3>Stufe 6: Base58 Blockchain-Kompression</h3>
-        <p>Die Daten werden in ein Zahlensystem zur Basis 58 transformiert. Dies entfernt riskante Steuer- und Sonderzeichen und staucht die Informationsdichte extrem effizient zusammen.</p>
-
-        <h3>Stufe 7: Hexadezimal-Codierung (Base16 Expansion)</h3>
-        <p>Der komprimierte String wird in klassische Hex-Paare aufgeteilt (0-9, a-f). Das bereitet das Datenkonstrukt strukturell auf die finale mathematische Phase vor.</p>
-
-        <h3>Stufe 8: Base64URL Safe Transport Layer</h3>
-        <p>Die Hex-Werte werden in ein 6-Bit-Rastersystem gepackt, das internet- und zeichensicher operiert (ohne Sonderzeichen-Abstürze in Routern oder Chatsystemen hervorzurufen).</p>
-
-        <h3>Stufe 9: Finale Festlegung – Pure Decimal Serialization (Reine Zahlen)</h3>
-        <p>Da der Übertragungskanal keine Modulationen oder Buchstaben erlaubt, greift hier das finale Konvertierungsmodul. Der resultierende Base64URL-String wird wieder in seine rohen numerischen ASCII/UTF-8-Byte-Werte zerlegt. Jedes einzelne Byte wird in eine <strong>exakt dreistellige Dezimalzahl von 000 bis 255</strong> umgerechnet (z. B. wird das Byte `65` zu `065`, das Byte `7` zu `007`). </p>
-        <ul>
-            <li><strong>Der Vorteil:</strong> Der Output besteht zu 100 % aus reinen Ziffern und Leerzeichen (zur optischen Gruppierung). Es gibt keine Buchstaben, keine Vorzeichen, keine Klammern. Das System ist somit maximal kompatibel und behält die gigantische mathematische Festung der vorherigen 8 Stufen vollständig bei.</li>
-        </ul>
+        <h3>Stufe 5: Pure Dezimal-Codierung (Dreistellig)</h3>
+        <p>Die finalen, hochgesicherten Bytes werden direkt in dreistellige Dezimalzahlen von <code>000</code> bis <code>255</code> konvertiert und durch Leerzeichen getrennt ausgegeben. Keine Buchstaben, keine Sonderzeichen – perfekt für numerische Kanäle.</p>
     </div>
 
     <script>
-        const B58_ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
-        const B32_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
-
-        // CSPRNG Hardware-Entropie über window.crypto
         function generateOmegaEntropy() {
             const aesBytes = new Uint8Array(32);   
             const chaosBytes = new Uint8Array(4);  
@@ -284,76 +258,10 @@
             document.getElementById('encKey').value = `${aesHex}_${chaosHex}_${otpHex}`;
         }
 
-        // CODIERUNGS-WERKZEUGE
         function hexToBytes(hex) {
             let bytes = [];
             for (let c = 0; c < hex.length; c += 2) bytes.push(parseInt(hex.substr(c, 2), 16));
             return new Uint8Array(bytes);
-        }
-        function bytesToHex(bytes) {
-            return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
-        }
-
-        function bytesToBase32(bytes) {
-            let bits = "";
-            for (let b of bytes) bits += b.toString(2).padStart(8, '0');
-            let ret = "";
-            for (let i = 0; i < bits.length; i += 5) {
-                let chunk = bits.substr(i, 5).padEnd(5, '0');
-                ret += B32_ALPHABET[parseInt(chunk, 2)];
-            }
-            return ret;
-        }
-        function base32ToBytes(str) {
-            let bits = "";
-            for (let c of str) {
-                let idx = B32_ALPHABET.indexOf(c.toUpperCase());
-                if(idx === -1) continue;
-                bits += idx.toString(2).padStart(5, '0');
-            }
-            let bytes = [];
-            for (let i = 0; i < bits.length; i += 8) {
-                if (i + 8 > bits.length) break;
-                bytes.push(parseInt(bits.substr(i, 8), 2));
-            }
-            return new Uint8Array(bytes);
-        }
-
-        function bytesToBase58(bytes) {
-            let num = 0n;
-            for (let byte of bytes) num = (num << 8n) + BigInt(byte);
-            let str = "";
-            while (num > 0n) {
-                let rem = num % 58n;
-                num = num / 58n;
-                str = B58_ALPHABET[Number(rem)] + str;
-            }
-            for (let byte of bytes) {
-                if (byte === 0) str = B58_ALPHABET[0] + str;
-                else break;
-            }
-            return str;
-        }
-        function base58ToBytes(str) {
-            let num = 0n;
-            let leadingZeros = 0;
-            let checkingZeros = true;
-            for (let i = 0; i < str.length; i++) {
-                if (checkingZeros && str[i] === B58_ALPHABET[0]) leadingZeros++;
-                else checkingZeros = false;
-                let val = B58_ALPHABET.indexOf(str[i]);
-                if (val === -1) continue;
-                num = num * 58n + BigInt(val);
-            }
-            let bytes = [];
-            while (num > 0n) {
-                bytes.push(Number(num & 0xffn));
-                num >>= 8n;
-            }
-            bytes.reverse();
-            let res = new Uint8Array(leadingZeros + bytes.length);
-            res.set(bytes, leadingZeros);
-            return res;
         }
 
         function Xorshift32(seed) {
@@ -373,21 +281,20 @@
             return map;
         }
 
-        // ASYNCHRONER RUNNER FÜR UI-REFRESH (LADEBALKEN)
         function runStep(barId, textId, percent, label, action) {
             return new Promise((resolve, reject) => {
                 document.getElementById(barId).style.width = percent + "%";
                 document.getElementById(textId).innerText = `[${percent}%] -> ${label}...`;
-                setTimeout(() => {
+                setTimeout(async () => {
                     try {
-                        let res = action();
+                        let res = await action();
                         resolve(res);
                     } catch(e) { reject(e); }
                 }, 250); 
             });
         }
 
-        // --- ENCODER PIPELINE ---
+        // --- ENCODER ---
         async function startEncryptionPipeline() {
             const text = document.getElementById('encText').value;
             const cluster = document.getElementById('encKey').value.trim();
@@ -395,13 +302,12 @@
             const pCont = document.getElementById('encProgressContainer');
 
             if (!text || !cluster || !cluster.includes('_')) {
-                outputBox.innerText = "SIGNAL ABORTED: Input-Daten oder Schlüssel unvollständig!";
+                outputBox.innerText = "ABBRUCH: Daten oder Schlüssel unvollständig!";
                 outputBox.style.color = "#ff0055";
                 return;
             }
 
             pCont.style.display = "block";
-            outputBox.innerText = "Kaskaden-Berechnung gestartet...";
             
             try {
                 const tokens = cluster.split('_');
@@ -409,29 +315,28 @@
                 const chaosSeed = parseInt(tokens[1], 16);
                 const otpRootBytes = hexToBytes(tokens[2]);
 
-                let step1 = await runStep('encProgressBar', 'encProgressText', 15, "Stufe 1 & 2: UTF-8 & Base32 Serialisierung", () => {
-                    return bytesToBase32(new TextEncoder().encode(text));
+                let step1 = await runStep('encProgressBar', 'encProgressText', 20, "Stufe 1: UTF-8 Serialisierung", () => {
+                    return new TextEncoder().encode(text);
                 });
 
-                let step2 = await runStep('encProgressBar', 'encProgressText', 35, "Stufe 3: Krypto-Sicheres AES-256-GCM Core-Injektion", async () => {
+                let step2 = await runStep('encProgressBar', 'encProgressText', 45, "Stufe 2: Krypto-Sicheres AES-256-GCM (Integritäts-Injektion)", async () => {
                     const cryptoKey = await window.crypto.subtle.importKey("raw", aesKeyBytes, { name: "AES-GCM" }, false, ["encrypt"]);
                     const iv = window.crypto.getRandomValues(new Uint8Array(12));
-                    const rawBuffer = await window.crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, cryptoKey, new TextEncoder().encode(step1));
+                    const rawBuffer = await window.crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, cryptoKey, step1);
                     let packed = new Uint8Array(iv.length + rawBuffer.byteLength);
                     packed.set(iv, 0); packed.set(new Uint8Array(rawBuffer), iv.length);
                     return packed;
                 });
-                let packedData = await step2; 
 
-                let step3 = await runStep('encProgressBar', 'encProgressText', 55, "Stufe 4: Matrix-Zerreißung (Chaotische Byte-Transposition)", () => {
+                let step3 = await runStep('encProgressBar', 'encProgressText', 70, "Stufe 3: Chaotische Matrix-Zerreißung", () => {
                     const prng = Xorshift32(chaosSeed);
-                    const shuffleMap = generateChaoticMap(packedData.length, prng);
-                    let shuffled = new Uint8Array(packedData.length);
-                    for(let i=0; i<packedData.length; i++) shuffled[shuffleMap[i]] = packedData[i];
+                    const shuffleMap = generateChaoticMap(step2.length, prng);
+                    let shuffled = new Uint8Array(step2.length);
+                    for(let i=0; i<step2.length; i++) shuffled[shuffleMap[i]] = step2[i];
                     return shuffled;
                 });
 
-                let step4 = await runStep('encProgressBar', 'encProgressText', 70, "Stufe 5: Informationstheoretisches One-Time-Pad", () => {
+                let step4 = await runStep('encProgressBar', 'encProgressText', 85, "Stufe 4: Informationstheoretisches One-Time-Pad", () => {
                     let finalEnc = new Uint8Array(step3.length);
                     for(let i=0; i<step3.length; i++) {
                         finalEnc[i] = (step3[i] + otpRootBytes[i % otpRootBytes.length]) % 256;
@@ -439,27 +344,18 @@
                     return finalEnc;
                 });
 
-                let step5 = await runStep('encProgressBar', 'encProgressText', 85, "Stufe 6, 7 & 8: Base58, Hex & Base64 Transport-Kompression", () => {
-                    let b58 = bytesToBase58(step4);
-                    let hex = bytesToHex(new TextEncoder().encode(b58));
-                    return btoa(hex).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-                });
-
-                let finalNumericStream = await runStep('encProgressBar', 'encProgressText', 100, "Stufe 9: Reine Dezimal-Nummerierung abgeschlossen", () => {
-                    let finalBytes = new TextEncoder().encode(step5);
+                let finalNumericStream = await runStep('encProgressBar', 'encProgressText', 100, "Stufe 5: Konvertierung in kompakten Dezimal-Zahlenstrom", () => {
                     let numString = "";
-                    for(let i=0; i<finalBytes.length; i++) {
-                        // Jedes Byte strikt dreistellig formatieren (000 - 255)
-                        numString += String(finalBytes[i]).padStart(3, '0') + " ";
-                        // Nach je 12 Zahlen einen Zeilenumbruch zur besseren Übersicht einfügen
+                    for(let i=0; i<step4.length; i++) {
+                        numString += String(step4[i]).padStart(3, '0') + " ";
                         if((i+1) % 12 === 0) numString += "\n";
                     }
                     return numString.trim();
                 });
 
                 outputBox.innerText = finalNumericStream;
-                outputBox.style.color = "#00ff66";
-                document.getElementById('encProgressText').innerText = "[100%] PIPELINE ERFOLGREICH: REINER ZAHLENSTROM GENERIERT.";
+                outputBox.style.color = "#00ffaa";
+                document.getElementById('encProgressText').innerText = "[100%] PIPELINE ABGESCHLOSSEN.";
 
             } catch (err) {
                 outputBox.innerText = "SCHWERWIEGENDER PIPELINE-ABSTURZ: " + err.message;
@@ -467,7 +363,7 @@
             }
         }
 
-        // --- DECODER PIPELINE ---
+        // --- DECODER ---
         async function startDecryptionPipeline() {
             const numStream = document.getElementById('decCipher').value.trim();
             const cluster = document.getElementById('decKey').value.trim();
@@ -475,13 +371,12 @@
             const pCont = document.getElementById('decProgressContainer');
 
             if (!numStream || !cluster || !cluster.includes('_')) {
-                outputBox.innerText = "DECODER ABORTED: Zahlenstrom oder Schlüssel-Cluster unvollständig!";
+                outputBox.innerText = "ABBRUCH: Zahlenstrom oder Schlüssel unvollständig!";
                 outputBox.style.color = "#ff0055";
                 return;
             }
 
             pCont.style.display = "block";
-            outputBox.innerText = "Reverse-Pipeline wird kalibriert...";
 
             try {
                 const tokens = cluster.split('_');
@@ -489,63 +384,56 @@
                 const chaosSeed = parseInt(tokens[1], 16);
                 const otpRootBytes = hexToBytes(tokens[2]);
 
-                let step1 = await runStep('decProgressBar', 'decProgressText', 20, "Demodulation Stufe 9: Rekonstruktion aus dreistelligen Nummern", () => {
-                    // Bereinige alle Zeilenumbrüche und extrahiere reine Zahlenblöcke
-                    let cleanTokens = numStream.replace(/\n/g, ' ').split(/\s+/);
+                let step1 = await runStep('decProgressBar', 'decProgressText', 25, "Stufe 1: Einlesen des Dezimal-Zahlenstroms", () => {
+                    let cleanTokens = numStream.replace(/\n/g, ' ').trim().split(/\s+/);
                     let byteArr = new Uint8Array(cleanTokens.length);
                     for(let i=0; i<cleanTokens.length; i++) {
                         let val = parseInt(cleanTokens[i], 10);
                         if (isNaN(val) || val < 0 || val > 255) throw new Error("Ungültiges Zahlenbit entdeckt.");
                         byteArr[i] = val;
                     }
-                    return new TextDecoder().decode(byteArr);
+                    return byteArr;
                 });
 
-                let step2 = await runStep('decProgressBar', 'decProgressText', 40, "Dekomprimierung Stufe 8, 7 & 6: Base64/Hex/Base58 Rekonstruktion", () => {
-                    let base64 = step1.replace(/-/g, '+').replace(/_/g, '/');
-                    while (base64.length % 4) base64 += '=';
-                    let hex = atob(base64);
-                    let b58Str = new TextDecoder().decode(hexToBytes(hex));
-                    return base58ToBytes(b58Str);
-                });
-
-                let step3 = await runStep('decProgressBar', 'decProgressText', 60, "Demaskierung Stufe 5: Reverse-One-Time-Pad Arithmetik", () => {
-                    let shuffled = new Uint8Array(step2.length);
-                    for(let i=0; i<step2.length; i++) {
-                        let orig = (step2[i] - otpRootBytes[i % otpRootBytes.length]) % 256;
+                let step2 = await runStep('decProgressBar', 'decProgressText', 50, "Stufe 2: Reverse-One-Time-Pad Demaskierung", () => {
+                    let shuffled = new Uint8Array(step1.length);
+                    for(let i=0; i<step1.length; i++) {
+                        let orig = (step1[i] - otpRootBytes[i % otpRootBytes.length]) % 256;
                         if (orig < 0) orig += 256;
                         shuffled[i] = orig;
                     }
                     return shuffled;
                 });
 
-                let step4 = await runStep('decProgressBar', 'decProgressText', 75, "Entwirrung Stufe 4: Reverse Chaotic Shuffling Matrix", () => {
+                let step3 = await runStep('decProgressBar', 'decProgressText', 75, "Stufe 3: Exakte mathematische Matrix-Entwirrung", () => {
                     const prng = Xorshift32(chaosSeed);
-                    const shuffleMap = generateChaoticMap(step3.length, prng);
-                    let packed = new Uint8Array(step3.length);
-                    for(let i=0; i<step3.length; i++) packed[shuffleMap[i]] = step3[i];
+                    const shuffleMap = generateChaoticMap(step2.length, prng);
+                    let packed = new Uint8Array(step2.length);
+                    // Hier ist die mathematisch korrekte Umkehrung des Shufflings:
+                    for(let i=0; i<step2.length; i++) {
+                        packed[i] = step2[shuffleMap[i]];
+                    }
                     return packed;
                 });
 
-                let step5 = await runStep('decProgressBar', 'decProgressText', 90, "Entschlüsselung Stufe 3: Subtile AES-256-GCM Kernauflösung", async () => {
-                    const iv = step4.slice(0, 12);
-                    const cipherBytes = step4.slice(12);
+                let step4 = await runStep('decProgressBar', 'decProgressText', 90, "Stufe 4: Symmetrische AES-256-GCM Kernauflösung", async () => {
+                    const iv = step3.slice(0, 12);
+                    const cipherBytes = step3.slice(12);
                     const cryptoKey = await window.crypto.subtle.importKey("raw", aesKeyBytes, { name: "AES-GCM" }, false, ["decrypt"]);
                     const decryptedBuffer = await window.crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, cryptoKey, cipherBytes);
-                    return new TextDecoder().decode(new Uint8Array(decryptedBuffer));
-                });
-                let b32String = await step5;
-
-                let finalPlaintext = await runStep('decProgressBar', 'decProgressText', 100, "De-Serialisierung Stufe 2 & 1: Base32-zu-Text Auflösung abgeschlossen", () => {
-                    return new TextDecoder().decode(base32ToBytes(b32String));
+                    return decryptedBuffer;
                 });
 
-                outputBox.innerText = "🔓 NUMERISCHE SYNCHRONISATION ERFOLGREICH!\n\nKlartext:\n" + finalPlaintext;
+                let finalPlaintext = await runStep('decProgressBar', 'decProgressText', 100, "Stufe 5: UTF-8 Dekodierung zu Klartext", () => {
+                    return new TextDecoder().decode(new Uint8Array(step4));
+                });
+
+                outputBox.innerText = "🔓 SYNCHRONISATION ERFOLGREICH!\n\nKlartext:\n" + finalPlaintext;
                 outputBox.style.color = "#00ffaa";
                 document.getElementById('decProgressText').innerText = "[100%] SIGNAL ZU TEXT REKONSTRUIERT.";
 
             } catch (err) {
-                outputBox.innerText = "🚨 ALARM: ZAHLENSTROM KORRUPT ODER ENTROPIE-SCHLÜSSEL FALSCH!\nReverse-Pipeline terminiert. Keine Übereinstimmung der Integritäts-Prüfsumme.";
+                outputBox.innerText = "🚨 ALARM: INTEGRIETÄTS-FEHLER ODER FALSCHER ENTROPIE-SCHLÜSSEL!\nDie Entschlüsselung wurde zum Schutz der Daten blockiert.";
                 outputBox.style.color = "#ff0055";
             }
         }
